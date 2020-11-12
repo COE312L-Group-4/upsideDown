@@ -1,5 +1,5 @@
 
-//I think this will be Runnable and will be an Observer for the player
+//I think this will be Runnable and change their position radeomely and will be an Observer for the player
 public class PoliceOfficer extends Person {
 
 	public PoliceOfficer() {
