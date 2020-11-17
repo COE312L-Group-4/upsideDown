@@ -1,10 +1,15 @@
-package locations;
 
-public class car extends place{
+public class car extends Place{
 	
 	String [] avaliablePos = {"hotel","","friend home"};
 	public car() {
-		super("You have entered your car!\n",0);
+		super("You have entered your car!\n", 0 );
+		items=new Object [100];
+	}
+	@Override
+	public void look() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

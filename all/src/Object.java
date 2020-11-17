@@ -1,4 +1,3 @@
-package upsidedown;
 
 public abstract class Object implements ObjectBehaviour{
 

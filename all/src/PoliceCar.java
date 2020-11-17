@@ -1,4 +1,3 @@
-package upsidedown;
 
 public class PoliceCar extends Object {
 

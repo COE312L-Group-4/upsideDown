@@ -1,22 +1,24 @@
-package locations;
 
-public abstract class place {
+public abstract class Place {
 	
 	String description;
 	//array of characters
 	//character [] c = null;
 	//array of objects
-	//object [] o = null;
+	Object [] items;
     int pos;
 
-    public place() {
+    
+    public Place() {
     	description = " ";
     	pos = -1;
+    	items = null;
 	}
 
-	public place(String description, int pos) {
+	public Place(String description, int pos) {
 		this.description = description;
 		this.pos = pos;
+		this.items = null;
 	}
 	
 	public abstract void look();

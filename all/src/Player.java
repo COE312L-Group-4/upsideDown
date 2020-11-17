@@ -3,9 +3,11 @@
 public class Player extends Person {
 	
 	private static Player instance;
-
+	Object [] bag;
+	
 	private Player(String name, int age, int position) {
 		super(name, age, position, "Player");
+		bag = new Object[5];
 	}
 	
 	
