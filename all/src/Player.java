@@ -3,6 +3,8 @@
 public class Player extends Person {
 	
 	private static Player instance;
+	int Score;
+	int Health; //this could be a state or something
 	Object [] bag;
 	
 	private Player(String name, int age, int position) {
