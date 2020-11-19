@@ -3,7 +3,7 @@ public abstract class Person {
 
 	String name;
 	int age;
-	int position;
+	private int position;
 	String job;
 	
 	public Person() {
@@ -25,6 +25,17 @@ public abstract class Person {
 	public String toString() {
 		return "Hey, I'm " + name + " " + age + " years old, I work as " + job + " I'm currently at position " + position;
 	}
+
+
+	public synchronized int getPosition() {
+		return position;
+	}
+
+
+	public synchronized void setPosition(int position) {
+		this.position = position;
+	}
+	
 	
 	
 }

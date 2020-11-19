@@ -32,8 +32,12 @@ public class driver {
 	    	System.out.println("The magic words you entered are not magical enough\nEnter the magic word CORRECTLY:");
 	    	MP = s.nextLine();
 	    }
-		
+		Player p = Player.getInstance(name,40, 5);
+	    Time t = new Time();
+	    SecurityControl sc = new SecurityControl(t,p);
 	    
+	    /*Security [] sec;
+	    sec[0] = new Static*/
 	    
 	    
 	}

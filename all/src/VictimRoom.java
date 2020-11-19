@@ -2,7 +2,7 @@
 public class VictimRoom extends Place{
 	String [] avaliablePos = {"hallway"};
 	public VictimRoom() {
-		super("You entered room 394!.\n",6);
+		super("You entered room 394!.\n",7,true);
 		items=new Object [100];
 		items[0] = new VictimPhone();
 		items[1] = new Safe();

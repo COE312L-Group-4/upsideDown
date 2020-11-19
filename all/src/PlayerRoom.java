@@ -4,7 +4,7 @@ public class PlayerRoom extends Place{
 	String [] avaliablePos = {"hallway"};
 	
 	public PlayerRoom() {
-		super("You entered your room!.\n",5);
+		super("You entered your room!.\n",5,true);
 		items=new Object [100];
 		items[0] = new CoffeeMaker();
 		items[1] = new RoomCard();
