@@ -7,21 +7,10 @@ public class Chair extends Object{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Chair(String name, boolean use, String color) {
-		super(name, use, color);
+	public Chair(String name, String color) {
+		super(name, color,"This is a chair");
 	}
 
-	@Override
-	public void checkLevel() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void checkDescription() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void use() {
@@ -35,12 +24,7 @@ public class Chair extends Object{
 		
 	}
 
-	@Override
-	public void collect() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public void store() {
 		// TODO Auto-generated method stub

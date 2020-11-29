@@ -6,22 +6,11 @@ public class VictimID extends Object{
 		// TODO Auto-generated constructor stub
 	}
 
-	public VictimID(String name, boolean use, String color) {
-		super(name, use, color);
+	public VictimID(String name, String color) {
+		super(name, color, "This is the Victim ID");
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void checkLevel() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void checkDescription() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void use() {
@@ -34,13 +23,7 @@ public class VictimID extends Object{
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void collect() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public void store() {
 		// TODO Auto-generated method stub

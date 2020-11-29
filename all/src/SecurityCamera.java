@@ -3,26 +3,13 @@ public class SecurityCamera extends Object{
 
 	public SecurityCamera() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public SecurityCamera(String name, boolean use, String color) {
-		super(name, use, color);
-		// TODO Auto-generated constructor stub
+	public SecurityCamera(String name, String color) {
+		super(name, color, "This is the Security Camera");
 	}
 
-	@Override
-	public void checkLevel() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void checkDescription() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public void use() {
 		// TODO Auto-generated method stub
@@ -31,12 +18,6 @@ public class SecurityCamera extends Object{
 
 	@Override
 	public void errorMessage() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void collect() {
 		// TODO Auto-generated method stub
 		
 	}

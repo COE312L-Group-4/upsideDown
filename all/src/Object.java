@@ -1,41 +1,31 @@
 
 public abstract class Object implements ObjectBehaviour{
-
-	String name;
-	boolean use; //a flag to indicated if used or not..maybe add an int level 
-	String color;
-	int level;
 	
-	public synchronized int getLevel() {
-		return level;
-	}
-	public synchronized void setLevel(int level) {
-		this.level = level;
-	}
+	String name;
+	String color;
+	String description;
+	boolean portable;
+	
 	public Object() {
 		super();
 		name=" ";
-		use=false;
 		color=" ";
-		level=10;
+		description = " ";
+		portable = false;
 	}
-	public Object(String name, boolean use, String color) {
+	public Object(String name, String color, String description, boolean portable) {
 		super();
 		this.name = name;
-		this.use = use;
 		this.color = color;
+		this.description = description;
+		this.portable = portable;
+
 	}
 	@Override
 	public String toString() {
-		return "Object [name=" + name + ", use=" + use + ", color=" + color + "]";
+		return "Object [name=" + name + ", color=" + color + "]";
 	}
-	public synchronized boolean isUse() {
-		return use;
-	}
-	public synchronized void setUse(boolean use) {
-		this.use = use;
-	}
-	
-	
+	public abstract void use(Player p);
+	public abstract void errorMessage();
 	
 }

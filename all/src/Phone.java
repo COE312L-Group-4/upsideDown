@@ -1,50 +1,46 @@
+import java.util.Scanner;
+import java.util.Date;
+public class Phone extends Object {
+	Scanner cin;
 
-public class Phone extends Object{
-
-	public Phone() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Phone(String name, boolean use, String color) {
-		super(name, use, color);
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void checkLevel() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void checkDescription() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void use() {
-		// TODO Auto-generated method stub
-		
+	public Phone(String color) {
+		super("phone", color, "The Phone is placed on the desk next to you.", true);
+		cin = new Scanner(System.in);
 	}
 
 	@Override
 	public void errorMessage() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void collect() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void store() {
-		// TODO Auto-generated method stub
-		
+	public void use(Player p) {
+		System.out.println("Please pick one of the following: \n1-What time is it?\n2-Use the notepad");
+		int s = cin.nextInt();
+		Date date = new Date();
+		boolean found = false;
+		String note;
+		try {
+			while (!found) {
+				switch (s) {
+				case 1:
+				    System.out.println(date.toString());
+					found = true;
+					break;
+				case 2:
+					System.out.println("Enter the note you want to input: ");
+					note = cin.nextLine();
+					p.nbook.write(note);
+					found = true;
+					break;
+				default:
+					System.out.println("Please enter a valid command");
+				}
+				s = cin.nextInt();
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }

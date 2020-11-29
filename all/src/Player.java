@@ -6,20 +6,47 @@ public class Player extends Person implements Subject {
 
 	private ArrayList observers;
 	private static Player instance;
-	int Score;
-	int Health; // this could be a state or something
-	Object[] bag;
+	private int Score;
+	private int Health; // this could be a state or something
+	ArrayList<Object> bag;
+	Notebook nbook;
+	
+	public synchronized int getScore() {
+		return Score;
+	}
 
-	private Player(String name, int age, int position) {
+	public synchronized int getHealth() {
+		return Health;
+	}
+
+	public synchronized void setScore(int score) {
+		Score = score;
+	}
+
+	public synchronized void setHealth(int health) {
+		if(health > 100) {
+			Health = 100;
+		} else if(health < 0) {
+			Health = 0;
+		}
+		else{ 
+			Health = health;
+		}
+	}
+
+	private Player(String name, int age, int position, Notebook nbook) {
 		super(name, age, position, "Player");
-		bag = new Object[5];
+		bag = new ArrayList<Object>();
 		observers = new ArrayList();
+		Score = 0;
+		Health = 100;
+		this.nbook = nbook;
 	}
 
 	// can we use singleton with 2 constructors (Only used the non-default)
-	public static synchronized Player getInstance(String name, int age, int position) {
+	public static synchronized Player getInstance(String name, int age, int position, Notebook nbook) {
 		if (instance == null) {
-			instance = new Player(name, age, position);
+			instance = new Player(name, age, position, nbook);
 		}
 		return instance;
 	}
@@ -27,8 +54,8 @@ public class Player extends Person implements Subject {
 	@Override
 	public void registerObserver(Security o) {
 		observers.add(o);
-
 	}
+	
 
 	@Override
 	public void removeObsever(Security o) {
@@ -43,5 +70,24 @@ public class Player extends Person implements Subject {
 			observer.update(this.getPosition());
 		}
 	}
+	
+	public boolean isBagFull() {
+		if(bag.size() >= 7) {
+			return true;
+		}
+		return false;
+	}
+	
+	public void getBagContent() {
+		if(!bag.isEmpty()) {
+			System.out.println("Your bag contains are: ");
+			for(int i=0; i < bag.size(); i++) {
+				System.out.println(bag.get(i).name);
+			}
+		}else {
+			System.out.println("Your bag is empty");
+		}
+	}
+	
 
 }

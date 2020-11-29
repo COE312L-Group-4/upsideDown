@@ -25,7 +25,8 @@ public class SecurityControl implements Runnable{
 					Thread.sleep(30000);
 				}
 			}catch(Exception e) {
-				System.out.println(e);			}
+				System.out.println(e);			
+			}
 		}
 	}
 	

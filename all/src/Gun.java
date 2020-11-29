@@ -1,31 +1,19 @@
 
 public class Gun extends Object {
 
+	
 	public Gun() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Gun(String name, boolean use, String color) {
-		super(name, use, color);
+	public Gun(String name, String color) {
+		super(name, color, "This is your gun");
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void checkLevel() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void checkDescription() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void use() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -36,15 +24,11 @@ public class Gun extends Object {
 	}
 
 	@Override
-	public void collect() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void store() {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }

@@ -1,16 +1,14 @@
 
 public class WashingMachine extends Object {
 
-	@Override
-	public void checkLevel() {
-		// TODO Auto-generated method stub
-		
+	
+	
+	public WashingMachine() {
+		super();
 	}
 
-	@Override
-	public void checkDescription() {
-		// TODO Auto-generated method stub
-		
+	public WashingMachine(String name, String color) {
+		super(name, color, "This is a Washing Machine");
 	}
 
 	@Override
@@ -21,12 +19,6 @@ public class WashingMachine extends Object {
 
 	@Override
 	public void errorMessage() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void collect() {
 		// TODO Auto-generated method stub
 		
 	}

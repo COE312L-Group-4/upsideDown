@@ -7,22 +7,12 @@ public class CarKeys extends Object{
 		// TODO Auto-generated constructor stub
 	}
 
-	public CarKeys(String name, boolean use, String color) {
-		super(name, use, color);
+	public CarKeys(String name, String color) {
+		super(name, color,"These are car keys");
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void checkLevel() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void checkDescription() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public void use() {
@@ -36,11 +26,6 @@ public class CarKeys extends Object{
 		
 	}
 
-	@Override
-	public void collect() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void store() {

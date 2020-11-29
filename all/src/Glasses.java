@@ -1,26 +1,16 @@
 
 public class Glasses extends Object{
 
+
+
 	public Glasses() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Glasses(String name, boolean use, String color) {
-		super(name, use, color);
+	public Glasses(String name, String color) {
+		super(name, color, "these are your glasses");
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void checkLevel() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void checkDescription() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -35,11 +25,6 @@ public class Glasses extends Object{
 		
 	}
 
-	@Override
-	public void collect() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void store() {

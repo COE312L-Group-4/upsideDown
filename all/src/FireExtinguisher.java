@@ -1,16 +1,14 @@
 
 public class FireExtinguisher extends Object {
 
-	@Override
-	public void checkLevel() {
-		// TODO Auto-generated method stub
-		
+	
+	public FireExtinguisher() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void checkDescription() {
-		// TODO Auto-generated method stub
-		
+	public FireExtinguisher(String name, String color) {
+		super(name, color, "This is a fire extinguisher");
 	}
 
 	@Override
@@ -21,12 +19,6 @@ public class FireExtinguisher extends Object {
 
 	@Override
 	public void errorMessage() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void collect() {
 		// TODO Auto-generated method stub
 		
 	}

@@ -6,21 +6,9 @@ public class Safe extends Object{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Safe(String name, boolean use, String color) {
-		super(name, use, color);
+	public Safe(String name,String color) {
+		super(name, color, "This is the safe");
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void checkLevel() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void checkDescription() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -31,12 +19,6 @@ public class Safe extends Object{
 
 	@Override
 	public void errorMessage() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void collect() {
 		// TODO Auto-generated method stub
 		
 	}

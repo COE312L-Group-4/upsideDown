@@ -6,22 +6,12 @@ public class Cupboard extends Object {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cupboard(String name, boolean use, String color) {
-		super(name, use, color);
+	public Cupboard(String name, String color) {
+		
+		super(name, color,"this is cupboard");
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void checkLevel() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void checkDescription() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void use() {
@@ -31,12 +21,6 @@ public class Cupboard extends Object {
 
 	@Override
 	public void errorMessage() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void collect() {
 		// TODO Auto-generated method stub
 		
 	}

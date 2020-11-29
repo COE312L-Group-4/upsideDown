@@ -5,6 +5,7 @@ public class Victim extends Person {
 
 	private Victim(String name, int age, int position) {
 		super(name, age, position,"Victim");
+		
 	}
 	
 	
