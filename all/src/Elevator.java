@@ -4,14 +4,12 @@ public class Elevator extends Place {
 
 	public Elevator() {
 		super("You have entered the Elevator you can go back to the hallway or exit the hotel.\n", 2, false);
-		items.add(new Button("Up"));
-		items.add(new Button("Down"));
+		items.add(new Button("grey"));
 	}
 
 	@Override
 	public void look() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -25,6 +23,5 @@ public class Elevator extends Place {
 
 		return pos;
 	}
-
 
 }

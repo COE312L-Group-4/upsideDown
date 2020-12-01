@@ -3,19 +3,12 @@ public class Safe extends Object{
 
 	public Safe() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Safe(String name,String color) {
-		super(name, color, "This is the safe");
-		// TODO Auto-generated constructor stub
+	public Safe(String color) {
+		super("safe", color, "There is an open safe", false);
 	}
 
-	@Override
-	public void use() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void errorMessage() {
@@ -24,9 +17,8 @@ public class Safe extends Object{
 	}
 
 	@Override
-	public void store() {
-		// TODO Auto-generated method stub
-		
+	public void use(Player p) {
+		System.out.println("There are a pile of papers with some cases folders that has different names:\nKyoko, Tamashini, Haru Sato, Yiugang ma");
 	}
 
 }

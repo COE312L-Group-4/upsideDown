@@ -7,15 +7,10 @@ public class FireExtinguisher extends Object {
 		// TODO Auto-generated constructor stub
 	}
 
-	public FireExtinguisher(String name, String color) {
-		super(name, color, "This is a fire extinguisher");
+	public FireExtinguisher(String color) {
+		super("fire extinguisher", color, "This is a fire extinguisher",false);
 	}
 
-	@Override
-	public void use() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void errorMessage() {
@@ -24,9 +19,10 @@ public class FireExtinguisher extends Object {
 	}
 
 	@Override
-	public void store() {
+	public void use(Player p) {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

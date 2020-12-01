@@ -1,33 +1,24 @@
 
-public class RoomWindow extends Object{
+public class RoomWindow extends Object {
 
 	public RoomWindow() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public RoomWindow(String name, String color) {
-		super(name, color, "This is the Room Window");
-		// TODO Auto-generated constructor stub
-	}
-
-	
-	@Override
-	public void use() {
-		// TODO Auto-generated method stub
-		
+	public RoomWindow(String color) {
+		super("Victim Room window", color, "The room has an open window on the street", false);
 	}
 
 	@Override
 	public void errorMessage() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	@Override
-	public void store() {
+	public void use(Player p) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

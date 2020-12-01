@@ -7,14 +7,9 @@ public class Gun extends Object {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Gun(String name, String color) {
-		super(name, color, "This is your gun");
+	public Gun(String color) {
+		super("gun", color, "You can find the gun in the car", true);
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void use() {
-		
 	}
 
 	@Override
@@ -24,10 +19,11 @@ public class Gun extends Object {
 	}
 
 	@Override
-	public void store() {
+	public void use(Player p) {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 	
 

@@ -61,20 +61,24 @@ public abstract class Place {
 						if (items.get(i).portable) {
 							items.get(i).description = "Stored in the players bag";
 							p.bag.add(items.get(i));
+							System.out.println("You have stored " + items.get(i).name + " in your bag!");
 							items.remove(i);
-							System.out.println("You have stored " + p.bag.get(i).name + " !");
 							return;
 						} else {
 							System.out.println("This item is not portable, You can't Store it");
+							return;
 						}
 					}
 				}
 				System.out.println("This item doesn't exist in this place");
+				return;
 			} else {
 				System.out.println("You can't store as your bag is full");
+				return;
 			}
 		} else {
 			System.out.println("No items exist in this place");
+			return;
 		}
 	}
 
@@ -84,8 +88,8 @@ public abstract class Place {
 				if (s.contains(p.bag.get(i).name.toLowerCase())) {
 					items.get(i).description = "stored in " + this.getClass().getTypeName();
 					items.add(p.bag.get(i));
+					System.out.println("You have removed " + p.bag.get(i).name + " !");
 					p.bag.remove(i);
-					System.out.println("You have removed " + items.get(i).name + " !");
 					return;
 				}
 			}

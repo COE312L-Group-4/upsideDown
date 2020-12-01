@@ -1,18 +1,19 @@
 
-public abstract class Object implements ObjectBehaviour{
-	
+public abstract class Object implements ObjectBehaviour {
+
 	String name;
 	String color;
 	String description;
 	boolean portable;
-	
+
 	public Object() {
 		super();
-		name=" ";
-		color=" ";
+		name = " ";
+		color = " ";
 		description = " ";
 		portable = false;
 	}
+
 	public Object(String name, String color, String description, boolean portable) {
 		super();
 		this.name = name;
@@ -21,11 +22,18 @@ public abstract class Object implements ObjectBehaviour{
 		this.portable = portable;
 
 	}
+
 	@Override
 	public String toString() {
 		return "Object [name=" + name + ", color=" + color + "]";
 	}
+
 	public abstract void use(Player p);
+
 	public abstract void errorMessage();
-	
+
+	public void use(Player p, Place place) {
+
+	}
+
 }

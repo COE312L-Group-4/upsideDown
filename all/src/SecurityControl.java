@@ -4,11 +4,11 @@ public class SecurityControl implements Runnable{
 	Security [] s;
 	Time time;
 	Player p;
-	public SecurityControl(Time time, Player p) {
-		s=new Security[10];
+	public SecurityControl(Time time, Player p,Place lr) {
+		s=new Security[2];
 		this.p=p;
-		s[0] = new StaticSecurity(p);
-		s[1] = new MovingSecurity(p);
+		s[0] = new StaticSecurity(p, time);
+		s[1] = new MovingSecurity(p,time,lr);
 		this.time = time;
 		Thread t=new Thread(this);
 		t.start();
@@ -16,7 +16,7 @@ public class SecurityControl implements Runnable{
 	
 	@Override
 	public void run() {
-		while(true) {  
+		while(!time.isTimeup()) {  
 			try {
 				if(time.getCount() >= 120) //Time in the range that we want ? 
 				{

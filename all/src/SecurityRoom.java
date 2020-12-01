@@ -1,27 +1,30 @@
 
-public class SecurityRoom extends Place{
-	String [] avaliablePos = {"hallway"};
+public class SecurityRoom extends Place {
+	String[] avaliablePos = { "hallway" };
+
 	public SecurityRoom() {
-		super("You entered the security room!.\n",6,false);
-		items.add(new SecurityCamera());
+		super("You entered the security room!", 6, true);
+		items.add(new SecurityCamera("black"));
 	}
+
 	@Override
 	public void look() {
-		// TODO Auto-generated method stub
-
+		System.out.println("You are in security room, you can find the following objects:");    //Room descrption
+		for (int i = 0; i < items.size(); i++) {
+			System.out.println(items.get(i).description);
+		}
+		System.out.println("You can only walk to the hallway");
 	}
+
 	@Override
 	public int walk(String s) {
-		
-		if(s.contains("hallway")) {
+
+		if (s.contains("hallway")) {
 			return 1;
-		}
-		else if(s.contains("302") || s.contains("301") || s.contains("303")) {
-			System.out.println("This place is locked, please try another place");
-		}else {
-			System.out.println("There is nosuch place, please try another place");
+		} else {
+			System.out.println("There is no such place, please try another place");
 		}
 		return pos;
-		
+
 	}
 }

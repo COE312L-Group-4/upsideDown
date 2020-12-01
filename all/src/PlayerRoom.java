@@ -9,9 +9,8 @@ public class PlayerRoom extends Place {
 	String[] avaliablePos = { "hallway" };
 
 	public PlayerRoom() {
-		super("You entered your room!.\n", 5, true);
-		items.add(new CoffeeMaker("Black", "There is a Coffee maker on the table next to the window")); // health and sound																				
-		items.add(new Phone("White"));
+		super("You entered your room!.", 5, true);
+		items.add(new CoffeeMaker("Black")); // health and sound																				
 	}
 
 	@Override
@@ -20,11 +19,9 @@ public class PlayerRoom extends Place {
 		for (int i = 0; i < items.size(); i++) {
 			System.out.println(items.get(i).description);
 		}
+		System.out.println("You can only walk to the hallway");
 	}
 
-	public void startDescription() {
-		System.out.println("STORY LINE AND IMPORTANT COMMANDS .. DON'T FORGET THIS YA 7YWAN");
-	}
 
 	@Override
 	public int walk(String s) {

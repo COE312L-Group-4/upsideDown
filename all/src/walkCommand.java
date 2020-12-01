@@ -1,8 +1,8 @@
 
 public class walkCommand implements Command {
-	Place [] places;
+	Place[] places;
 	Player p;
-	
+
 	public walkCommand(Place[] places, Player p) {
 		this.places = places;
 		this.p = p;
@@ -11,9 +11,15 @@ public class walkCommand implements Command {
 	@Override
 	public void execute(String s) {
 		int old = p.getPosition();
-		p.setPosition(places[p.getPosition()].walk(s));
-		if(old != p.getPosition()) {
-			System.out.println(places[p.getPosition()].getDescription());
+		int x = places[p.getPosition()].walk(s);
+		if (places[x].open && places[old].open) {
+			p.setPosition(x);
+			if (old != p.getPosition()) {
+				System.out.println(places[p.getPosition()].getDescription());
+				p.notifyObservers();
+			}
+		} else {
+			System.out.println("This room is locked, You need to find a way to open it !!");
 		}
 	}
 

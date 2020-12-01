@@ -1,15 +1,15 @@
 import java.io.*;
 
-public class Notebook extends Object {
+public class Notebook{
 
 	
     PrintWriter out ;
-    FileReader fr;
+    BufferedReader br;
 
 	public Notebook(BufferedWriter bw,FileReader fr) {
 		super();
 		out= new PrintWriter(bw);
-		this.fr=fr;
+		br=new BufferedReader(fr);
 	}
 
 	public void write(String s) throws IOException
@@ -20,23 +20,13 @@ public class Notebook extends Object {
 	public void read() throws IOException
 	{
 		int i;
-		while((i=fr.read())!=-1)
+		br.mark(25);
+		while((i=br.read())!=-1)
 		{
 			System.out.print((char)i);
 		}
-	}
-	
-
-	@Override
-	public void use(Player p) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void errorMessage() {
-		// TODO Auto-generated method stub
-
+		System.out.println("\n");
+		br.reset();
 	}
 	
 

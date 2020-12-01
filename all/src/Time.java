@@ -25,7 +25,7 @@ public class Time implements Runnable {
 			System.out.println(
 					"You have been spotted by the security while entering the victim's room!\nThe police will arrive in 15 minutes while the security will reach the room in only 2 minutes!");
 
-			while (true) {
+			while (!Timeup) {
 
 				Thread.sleep(1000);
 				count++;
@@ -43,7 +43,7 @@ public class Time implements Runnable {
 
 				} else if (count >= 900) { // 15 mins for the police men
 					System.out.println("15 minutes has passed..Gameover!");
-					Timeup = false;
+					this.setTimeup(true);
 				}
 
 			}

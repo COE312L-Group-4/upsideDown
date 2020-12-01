@@ -4,32 +4,20 @@ public class CarKeys extends Object{
 	
 	public CarKeys() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public CarKeys(String name, String color) {
-		super(name, color,"These are car keys");
-		// TODO Auto-generated constructor stub
+	public CarKeys(String color) {
+		super("car keys", color,"These are car keys",true);
 	}
 
-	
-
-	@Override
-	public void use() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void errorMessage() {
-		// TODO Auto-generated method stub
 		
 	}
 
-
 	@Override
-	public void store() {
-		// TODO Auto-generated method stub
+	public void use(Player p) {
 		
 	}
 
