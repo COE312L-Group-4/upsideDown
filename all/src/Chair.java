@@ -21,11 +21,11 @@ public class Chair extends Object {
 	}
 
 	public void use(Player p, Place place) {
-		if (place.open) {
-			place.open = false;
+		if (place.isOpen()) {
+			place.setOpen(false);
 			System.out.println("You used the chair to block the door.\nThe room is now locked");
 		} else {
-			place.open = true;
+			place.setOpen(true);
 			System.out.println("you removed the chair.\nThe room is now open");
 		}
 	}

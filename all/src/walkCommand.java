@@ -12,7 +12,7 @@ public class walkCommand implements Command {
 	public void execute(String s) {
 		int old = p.getPosition();
 		int x = places[p.getPosition()].walk(s);
-		if (places[x].open && places[old].open) {
+		if (places[x].isOpen() && places[old].isOpen()) {
 			p.setPosition(x);
 			if (old != p.getPosition()) {
 				System.out.println(places[p.getPosition()].getDescription());

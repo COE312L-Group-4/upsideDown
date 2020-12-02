@@ -1,10 +1,10 @@
 
 public class Hallway extends Place {
 	String[] avaliablePos = { "elevator", "housekeeping room", "laundry room", "room 314", "security room", "room 394" }; // 2,3,4,5,6,7
-
-	public Hallway() {
+	
+	public Hallway(TCP_Client subject,Place sr) {
 		super("you are standing in the hallway!", 1, true);
-		items.add(new FireExtinguisher("Red")); // sensor
+		items.add(new FireExtinguisher("Red",subject, sr)); // sensor
 
 	}
 

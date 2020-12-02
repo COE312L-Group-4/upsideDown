@@ -5,7 +5,7 @@ public abstract class Place {
 	String description;
 	ArrayList<Object> items;
 	int pos;
-	boolean open;
+	private boolean open;
 
 	public Place() {
 		description = " ";
@@ -97,6 +97,14 @@ public abstract class Place {
 		} else {
 			System.out.println("Your bag is empty!");
 		}
+	}
+
+	public synchronized boolean isOpen() {
+		return open;
+	}
+
+	public synchronized void setOpen(boolean open) {
+		this.open = open;
 	}
 
 }

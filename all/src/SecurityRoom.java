@@ -3,7 +3,7 @@ public class SecurityRoom extends Place {
 	String[] avaliablePos = { "hallway" };
 
 	public SecurityRoom() {
-		super("You entered the security room!", 6, true);
+		super("You entered the security room!", 6, false);
 		items.add(new SecurityCamera("black"));
 	}
 

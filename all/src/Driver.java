@@ -5,10 +5,11 @@ import javax.sound.sampled.*;
 public class Driver {
 
 	public static void main(String[] args) throws Exception {
-		// new TCP_Client("192.168.0.163", 56615); // N 192.168.1.133 // A 192.168.0.135
+		TCP_Client tcp = new TCP_Client("192.168.0.163", 56615); // N 192.168.1.133 // A 192.168.0.135
 		// -------------Nadeen-----------Sound declerations--------------------------------
 		Sound powerUp = new Sound("Power_Up_Ray-Mike_Koenig-800933783.wav");
-		//powerUp.playSound();
+		Sound alarm = new Sound("TIMER2.wav");
+
 		// --Nouran--
 		FileWriter fw = new FileWriter("notebook.txt", true);
 		BufferedWriter bw = new BufferedWriter(fw);
@@ -27,17 +28,6 @@ public class Driver {
 		writerp.write("");
 		writerp.close();
 		
-		// Places Initialization
-		Place[] places = new Place[8];
-		places[0] = new car();
-		places[1] = new Hallway();
-		places[2] = new Elevator();
-		places[3] = new HouseKeepingRoom();
-		places[4] = new LaundryRoom();
-		places[5] = new PlayerRoom(powerUp);
-		places[6] = new SecurityRoom();
-		places[7] = new VictimRoom();
-
 		Notebook notebook = new Notebook(bw, fr);
 		Notebook phonenotebook = new Notebook(bwp, frp);
 
@@ -50,6 +40,21 @@ public class Driver {
 
 
 		Player p = Player.getInstance(name, 40, 5, notebook ,phonenotebook);
+		
+		//Intailize extra room
+		Place security = new SecurityRoom();
+		
+		// Places Initialization
+		Place[] places = new Place[8];
+		places[0] = new car();
+		places[1] = new Hallway(tcp,security);
+		places[2] = new Elevator();
+		places[3] = new HouseKeepingRoom(powerUp);
+		places[4] = new LaundryRoom();
+		places[5] = new PlayerRoom(powerUp);
+		places[6] = security;
+		places[7] = new VictimRoom(p,tcp);
+		
 		Time t = new Time(p);
 		SecurityControl sc = new SecurityControl(t, p, places[4]);
 
@@ -76,7 +81,7 @@ public class Driver {
 						+ "\nYou entered the hotel extremely exhausted from the flight, barely reached the bed and passed out"
 						+ "\n\nTrnnn..Trnn"
 						+"\nThe sound of your alarm wakes you up from your deep sleep..You are feeling energized and ready to leave the room and start exploring Tokyo, Japan's busiest capital\n");
-		
+		alarm.playSound();
 		String MP;
 
 		while (!t.isTimeup()) {

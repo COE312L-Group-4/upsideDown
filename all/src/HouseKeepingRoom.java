@@ -1,11 +1,10 @@
 
 public class HouseKeepingRoom extends Place {
 	String[] avaliablePos = { "hallway" };
-	
 
-	public HouseKeepingRoom() {
-		super("You entered the house keeping room!.", 3, false);
-		items.add(new Microwave("Blue"));
+	public HouseKeepingRoom(Sound s) {
+		super("You entered the house keeping room!.", 3, true);
+		items.add(new Microwave("Blue",s));
 	}
 
 	@Override

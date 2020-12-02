@@ -18,10 +18,6 @@ public class Sound {
 	public Sound(String filename) {
 		try {
 			this.yourFile = new File(filename);
-			this.stream = AudioSystem.getAudioInputStream(yourFile);
-			this.format = stream.getFormat();
-			this.info = new DataLine.Info(Clip.class, format);
-			this.clip = (Clip) AudioSystem.getLine(info);
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -29,8 +25,14 @@ public class Sound {
 
 	public void playSound() {
 		try {
+			this.stream = AudioSystem.getAudioInputStream(yourFile);
+			this.format = stream.getFormat();
+			this.info = new DataLine.Info(Clip.class, format);
+			this.clip = (Clip) AudioSystem.getLine(info);
 			clip.open(stream);
 			clip.start();
+			clip.flush();
+			//clip.close();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

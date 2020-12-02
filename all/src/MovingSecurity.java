@@ -22,7 +22,7 @@ public class MovingSecurity extends Security {
 	@Override
 	public void posChange() {
 		if (locationName[Securitypath[c] - 1].contains("Laundry Room")) {
-			if (!place.open) {
+			if (!place.isOpen()) {
 				c += 2;
 				c = c % 16;
 			}

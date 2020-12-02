@@ -91,7 +91,7 @@ public class Player extends Person implements Subject {
 
 	public void getBagContent() {
 		if (!bag.isEmpty()) {
-			System.out.println("Your bag contains are: ");
+			System.out.println("Your bag contains: ");
 			for (int i = 0; i < bag.size(); i++) {
 				System.out.println(bag.get(i).name);
 			}

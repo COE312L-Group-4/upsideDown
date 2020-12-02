@@ -1,7 +1,7 @@
 public class Time implements Runnable {
 	private int count;
 	final int PoliceTime = 900; // in secs
-	final int SecurityTime = 120; // in secs
+	final int SecurityTime = 180; // in secs
 	boolean Timeup = false;
 	boolean enteredVicRoom = false;
 	Player p;
@@ -34,7 +34,7 @@ public class Time implements Runnable {
 						System.out.println("The securities have arrived to the victim's room");
 					} else {
 						System.out.println("You have " + ((SecurityTime - count) / 60)
-								+ " minutes remaining for the Security arrival");
+								+ " minutes remaining for the Security arrival");	
 					}
 					if (count % 300 == 0) {			
 						System.out.println("You have " + ((PoliceTime - count) / 60)

@@ -40,7 +40,7 @@ public class SecurityCamera extends Object {
 
 						pafirst = false;
 						//************Display the image***********
-						MyCanvas m=new MyCanvas("video-evidence-900.jpg");  
+						MyCanvas m=new MyCanvas("video-evidence-901.jpeg");  
 				        JFrame f=new JFrame();  
 				        f.add(m);  
 				        f.setSize(700,700);  

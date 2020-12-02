@@ -1,5 +1,5 @@
 
-public abstract class Object implements ObjectBehaviour {
+public abstract class Object implements ObjectBehaviour, ObserverSensor {
 
 	String name;
 	String color;
@@ -33,6 +33,11 @@ public abstract class Object implements ObjectBehaviour {
 	public abstract void errorMessage();
 
 	public void use(Player p, Place place) {
+
+	}
+
+	@Override
+	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz) {
 
 	}
 
