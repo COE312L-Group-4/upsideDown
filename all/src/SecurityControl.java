@@ -18,10 +18,10 @@ public class SecurityControl implements Runnable{
 	public void run() {
 		while(!time.isTimeup()) {  
 			try {
-				if(time.getCount() >= 120) //Time in the range that we want ? 
+				if(time.getCount() >= 180) //Time in the range that we want ? 
 				{
 					s[1].posChange();
-					if(time.getCount() == 120) {s[0].posChange();}
+					if(time.getCount() == 180) {s[0].posChange();}
 					Thread.sleep(30000);
 				}
 			}catch(Exception e) {

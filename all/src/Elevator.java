@@ -1,15 +1,15 @@
 
 public class Elevator extends Place {
-	String[] avaliablePos = { "exit", "hallway" };
+	String[] avaliablePos = { "hallway" };
 
 	public Elevator() {
-		super("You have entered the Elevator you can go back to the hallway or exit the hotel.\n", 2, false);
+		super("You have entered the Elevator you can go back to the hallway or exit to your car.", 2, false);
 		items.add(new Button("grey"));
 	}
 
 	@Override
 	public void look() {
-		
+		System.out.print("You are in the elevator, you can use the exit button to exit the hotel and move to the next scene\nor you can go back to the hallway"); 
 	}
 
 	@Override

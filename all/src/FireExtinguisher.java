@@ -8,7 +8,7 @@ public class FireExtinguisher extends Object {
 	}
 
 	public FireExtinguisher(String color) {
-		super("fire extinguisher", color, "This is a fire extinguisher",false);
+		super("fire extinguisher", color, "A fire extinguisher at the end of the hallway",false);
 	}
 
 
@@ -20,8 +20,7 @@ public class FireExtinguisher extends Object {
 
 	@Override
 	public void use(Player p) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("");
 	}
 
 

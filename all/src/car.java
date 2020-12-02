@@ -1,7 +1,7 @@
 
 public class car extends Place {
 
-	String[] avaliablePos = { "hotel", "", "friend home" };
+	String[] avaliablePos = { "resturant", "friend home" };
 	
 	public car() {
 		super("You have entered your car!\n", 0, true);
@@ -14,7 +14,6 @@ public class car extends Place {
 		for (int i = 0; i < items.size(); i++) {
 			System.out.println(items.get(i).description);
 		}
-		System.out.println("You can only walk to the hallway");
 	}
 
 	@Override

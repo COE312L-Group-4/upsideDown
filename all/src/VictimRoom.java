@@ -4,7 +4,7 @@ public class VictimRoom extends Place {
 	String[] avaliablePos = { "hallway" };
 
 	public VictimRoom() {
-		super("You entered room 394!.\nThere is a dead body on the ground!!", 7, true);
+		super("You entered room 394..\nThere is a dead body on the ground!!", 7, true);
 		items.add(new VictimPhone("Black"));
 		items.add(new Safe("Grey"));
 		items.add(new VictimID("White"));

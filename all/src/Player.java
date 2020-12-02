@@ -21,11 +21,12 @@ public class Player extends Person implements Subject {
 	}
 
 	public synchronized void setScore(int score) {
-		Score = score;
-	}
-
-	public synchronized void showScore() {
-		System.out.println("Your Score is " + Score);
+		if (score < 0) {
+			this.Score = 0;
+		} else {
+			this.Score = score;
+		}
+		System.out.println("Your score has been updated, your new score = " + Score);
 	}
 
 	public synchronized void setHealth(int health) {
@@ -35,6 +36,9 @@ public class Player extends Person implements Subject {
 			Health = 0;
 		} else {
 			Health = health;
+		}
+		if (Health <= 15) {
+			System.out.println("Your health is dropping low, Health = " + Health + "/100");
 		}
 	}
 

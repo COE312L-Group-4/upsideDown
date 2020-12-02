@@ -8,9 +8,9 @@ import java.util.Arrays;
 public class PlayerRoom extends Place {
 	String[] avaliablePos = { "hallway" };
 
-	public PlayerRoom() {
+	public PlayerRoom(Sound s) {
 		super("You entered your room!.", 5, true);
-		items.add(new CoffeeMaker("Black")); // health and sound																				
+		items.add(new CoffeeMaker("Black",s)); // health and sound																				
 	}
 
 	@Override

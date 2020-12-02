@@ -20,25 +20,28 @@ public class Time implements Runnable {
 				if (p.getPosition() == 7) {
 					enteredVicRoom = true;
 				}
-				Thread.sleep(1000);
+				Thread.sleep(30000);
 			}
 			System.out.println(
-					"You have been spotted by the security while entering the victim's room!\nThe police will arrive in 15 minutes while the security will reach the room in only 2 minutes!");
-
+					"You have been spotted by the security while entering the victim's room!\nThe security will reach the room in only 3 minutes..They have also called the police which will arrive in 15 minutes");
+			System.out.println("Instructions: Try to hide in different locations in the hotel to not get caught and collect the evidence");
 			while (!Timeup) {
 
 				Thread.sleep(1000);
 				count++;
-				if (count % 60 == 0 && count != 0 && count <= 120) { // 2 mins for the security
-					if (count == 120) {
+				if (count % 60 == 0 && count != 0 && count <= 180) { // 2 mins for the security
+					if (count == 180) {
 						System.out.println("The securities have arrived to the victim's room");
 					} else {
 						System.out.println("You have " + ((SecurityTime - count) / 60)
 								+ " minutes remaining for the Security arrival");
 					}
-					if (count % 300 == 0) {
+					if (count % 300 == 0) {			
 						System.out.println("You have " + ((PoliceTime - count) / 60)
 								+ " minutes remaining for the police arrival ");
+					}
+					if(count % 7 == 0) {
+						p.setHealth((p.getHealth())-1);
 					}
 
 				} else if (count >= 900) { // 15 mins for the police men

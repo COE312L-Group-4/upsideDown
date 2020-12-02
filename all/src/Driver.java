@@ -6,9 +6,9 @@ public class Driver {
 
 	public static void main(String[] args) throws Exception {
 		// new TCP_Client("192.168.0.163", 56615); // N 192.168.1.133 // A 192.168.0.135
-		// -------------Nadeen-----------Sound--------------------------------
+		// -------------Nadeen-----------Sound declerations--------------------------------
 		Sound powerUp = new Sound("Power_Up_Ray-Mike_Koenig-800933783.wav");
-		powerUp.playSound();
+		//powerUp.playSound();
 		// --Nouran--
 		FileWriter fw = new FileWriter("notebook.txt", true);
 		BufferedWriter bw = new BufferedWriter(fw);
@@ -34,27 +34,20 @@ public class Driver {
 		places[2] = new Elevator();
 		places[3] = new HouseKeepingRoom();
 		places[4] = new LaundryRoom();
-		places[5] = new PlayerRoom();
+		places[5] = new PlayerRoom(powerUp);
 		places[6] = new SecurityRoom();
 		places[7] = new VictimRoom();
 
 		Notebook notebook = new Notebook(bw, fr);
 		Notebook phonenotebook = new Notebook(bwp, frp);
 
-		System.out.println("**Welcome to Upside Down!**\nEnter your name");
+		System.out.println("**Welcome to Upside Down!**\n");
 		Scanner cin = new Scanner(System.in);
+		System.out.println(
+				"UpsideDown is a thriller and crime game.\nAs a player you will have to go around solving puzzels, and collecting evidence to win the game\nYou have health that you can increase by eating or drinking from the game enviroment\nYou have a bag that you can use to store up to 7 objects\nYou can always access the notebook to read a summary of the evidence collected\nYou can use the notepad feature in your phone that is placed in the bag to write personalized notes\nyou can type *help* to know the commands needed to play the game\n\n----Good Luck trying to fix your life when it turns upside down----\n");
+		System.out.println("Type your name to start..");
 		String name = cin.nextLine();
 
-		System.out.println("Your name is: " + name);
-		System.out.println("Type your name to start");
-
-		// Enter the Start Phrase
-		String MP = cin.nextLine().toLowerCase();
-		while (!MP.contains(name.toLowerCase())) {
-			System.out.println(
-					"I doubt you will be able to finish this game if you don't know how to even type your name.\nHint: you just entered it few lines above");
-			MP = cin.nextLine();
-		}
 
 		Player p = Player.getInstance(name, 40, 5, notebook ,phonenotebook);
 		Time t = new Time(p);
@@ -72,12 +65,19 @@ public class Driver {
 		Command[] ca = { lcomm, wcomm, ucomm, scomm, bcomm, rbcomm, hcomm, ncomm };
 		ControlPanel cp = new ControlPanel(ca);
 
-		// Things the player need to know before starting the game.
-		System.out.println(
-				"UpsideDown is a thriller and crime game.\nAs a player you will have to go around solving puzzels, and collecting evidence to win the game\nYou have health that you can increase by eating or drinking random stuff from the game enviroment\nYou have a bag that you can use to store up to 7 objects in, you can always access the notebook to read a summary of the evidence collected\nYou can use the notepad feature in your phone that is placed in the bag to write personalized notes\nyou can type *help* to know the commands needed to play the game\n");
+
+		// Enter the Start Phrase
+		
 		// Story descrpition
 		System.out.println(
-				"As a detective you have spent your entire life chasing and catching the bad guys and it is finally the time for you to take a break\nYou packed your luggage and went to Japan to stay away from everything and to catch your breath!\nYou entered the hotel, got into your room, and you just slept all night\nyou woke up and you are currently setting in your hotel room.");
+				"\nAs the famous detective "+name+" you have spent your entire life chasing and catching the bad guys.\nIt is finally the time for you to take a break (or at least you think that)"
+						+ "\nYou packed your luggage and went to Japan for a refereshing break..."
+						+ "\n\n*After a 12 hours long flight*"
+						+ "\nYou entered the hotel extremely exhausted from the flight, barely reached the bed and passed out"
+						+ "\n\nTrnnn..Trnn"
+						+"\nThe sound of your alarm wakes you up from your deep sleep..You are feeling energized and ready to leave the room and start exploring Tokyo, Japan's busiest capital\n");
+		
+		String MP;
 
 		while (!t.isTimeup()) {
 
