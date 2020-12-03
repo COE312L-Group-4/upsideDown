@@ -5,12 +5,12 @@ import java.util.Observer;
 // Use the Singleton pattern 
 public class Player extends Person implements Subject {
 
-	private ArrayList observers;
+	private ArrayList<Person> observers;
 	private static Player instance;
 	private int Score;
 	private int evidence;
 	private int Health; // this could be a state or something
-	ArrayList<Object> bag;
+	public  ArrayList<Object> bag;
 	Notebook nbook;
 
 	public synchronized int getScore() {
@@ -47,7 +47,7 @@ public class Player extends Person implements Subject {
 		super(name, age, position, "Player");
 		bag = new ArrayList<Object>();
 		bag.add(new Phone("White", phonenbook));
-		observers = new ArrayList();
+		observers = new ArrayList<Person>();
 		Score = 0;
 		Health = 100;
 		evidence = 0;
@@ -64,12 +64,12 @@ public class Player extends Person implements Subject {
 	}
 
 	@Override
-	public void registerObserver(Security o) {
+	public void registerObserver(Person o) {
 		observers.add(o);
 	}
 
 	@Override
-	public void removeObsever(Security o) {
+	public void removeObsever(Person o) {
 		int i = observers.indexOf(o);
 		if (i >= 0)
 			observers.remove(i);
@@ -78,7 +78,7 @@ public class Player extends Person implements Subject {
 	@Override
 	public void notifyObservers() {
 		for (int i = 0; i < observers.size(); i++) {
-			Security observer = (Security) observers.get(i);
+			Person observer = (Person) observers.get(i);
 			observer.update(this.getPosition());
 		}
 	}
@@ -114,8 +114,10 @@ public class Player extends Person implements Subject {
 		}
 	}
 
+
 	@Override
-	public void talk() {
-System.out.println("I'm a player");		
+	public void talk(Player p) {
+		System.out.println("I'm a player");		
+		
 	}
 }

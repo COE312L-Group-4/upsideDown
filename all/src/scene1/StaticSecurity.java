@@ -14,7 +14,7 @@ public class StaticSecurity extends Security {
 	@Override
 	public void posChange() {
 		System.out.println("A Security guard is waiting in the victim's room monitoring the door");
-		this.setPosition(6);
+		this.setPosition(7);
 		if (p.getPosition() == this.getPosition()) {
 			System.out.println("You have been caught by the security!\nGame over.");
 			t.setTimeup(true);
@@ -30,7 +30,7 @@ public class StaticSecurity extends Security {
 	}
 
 	@Override
-	public void talk() {
+	public void talk(Player p) {
 		System.out.println("I'm a static security");
 		
 	}

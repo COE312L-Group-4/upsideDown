@@ -17,7 +17,7 @@ public class SecurityControl implements Runnable{
 	
 	@Override
 	public void run() {
-		while(!time.isTimeup()) {  
+		while(!time.isTimeup() && p.getPosition()!=0) {  
 			try {
 				if(time.getCount() >= 180) //Time in the range that we want ? 
 				{

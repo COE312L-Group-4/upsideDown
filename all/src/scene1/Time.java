@@ -1,4 +1,8 @@
 package scene1;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 public class Time implements Runnable {
 	private int count;
 	final int PoliceTime = 900; // in secs
@@ -25,8 +29,8 @@ public class Time implements Runnable {
 			}
 			System.out.println(
 					"You have been spotted by the security while entering the victim's room!\nThe security will reach the room in only 3 minutes..They have also called the police which will arrive in 15 minutes");
-			System.out.println("Instructions: Try to hide in different locations in the hotel to not get caught and collect the evidence");
-			while (!Timeup) {
+			System.out.println("Instructions: Try to hide in different locations in the hotel to not get caught and collect the evidence (You can use the map to figure out the securite route) ");
+			while (!Timeup && p.getPosition()!=0) {
 
 				Thread.sleep(1000);
 				count++;
@@ -61,8 +65,15 @@ public class Time implements Runnable {
 		return Timeup;
 	}
 
-	public synchronized void setTimeup(boolean timeup) {
+	public synchronized void setTimeup(boolean timeup){
 		Timeup = timeup;
+		 /*try {
+		 Robot robot = new Robot();
+         robot.keyPress(KeyEvent.VK_ENTER);
+         robot.keyRelease(KeyEvent.VK_ENTER);
+		 }catch(Exception e) {
+			 System.out.println(e.getMessage());
+		 }*/
 	}
 
 	public synchronized int getCount() {

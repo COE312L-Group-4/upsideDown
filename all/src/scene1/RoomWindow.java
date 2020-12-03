@@ -37,8 +37,9 @@ public class RoomWindow extends Object {
 	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz) {
 		if (use && gyrx>=2) {
 				System.out.println(
-						"Jumping was not a very smart move..\nLuckily you managed to land in the Laundry room");
-				p.setPosition(4);
+						"Jumping was not a very smart move..\nLuckily you managed to land in the house keeping room room");
+				p.setPosition(3);
+				p.notifyObservers();
 				p.setHealth(p.getHealth() - 20);
 				System.out.println("You hurt your leg.. your new health is " + p.getHealth() + "/100");
 				p.setScore(p.getScore() + 10);

@@ -20,7 +20,7 @@ public class walkCommand implements Command {
 				p.notifyObservers();
 			}
 		} else {
-			System.out.println("This room is locked, You need to find a way to open it !!");
+			System.out.println("This room is locked, You need to find a way to open it!!");
 		}
 	}
 

@@ -14,8 +14,7 @@ public class talkCommand implements Command {
 
 	@Override
 	public void execute(String s) {
-		places[p.getPosition()].talkInPlace(s);	
-
+		places[p.getPosition()].talkInPlace(s,p);		
 	}
 
 }

@@ -2,7 +2,7 @@ package scene1;
 
 public abstract class Object implements ObjectBehaviour, ObserverSensor {
 
-	String name;
+	public String name;
 	String color;
 	public String description;
 	boolean portable;

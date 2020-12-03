@@ -17,9 +17,11 @@ public class VictimRoom extends Place {
 	public void look() {
 		System.out.println(
 				"You are in hotel room 394, There is a dead body, security have seen me entring the room, most probably they will accuse me for murdering him!\nI need to stay low and find who really did it..");
-		System.out.println("you can see the follwoing objects:");
-		for (int i = 0; i < items.size(); i++) {
-			System.out.println(items.get(i).description);
+		if(!items.isEmpty()) {
+			System.out.println("you can see the follwoing objects:");
+			for (int i = 0; i < items.size(); i++) {
+				System.out.println(items.get(i).description);
+			}
 		}
 		System.out.println("You can only walk to the hallway");
 

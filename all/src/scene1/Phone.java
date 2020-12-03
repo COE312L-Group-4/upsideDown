@@ -5,13 +5,14 @@ import java.util.Date;
 public class Phone extends Object {
 	Scanner cin;
 	Notebook nb;
+	
 
 	public Phone(String color, Notebook nb) {
 		super("phone", color, "your phone is in your bag", true);
 		cin = new Scanner(System.in);
 		this.nb = nb;
 	}
-
+	
 	@Override
 	public void errorMessage() {
 
@@ -58,5 +59,6 @@ public class Phone extends Object {
 			System.out.println(e);
 		}
 	}
+
 
 }

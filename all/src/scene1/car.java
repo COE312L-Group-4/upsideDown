@@ -23,8 +23,14 @@ public class car extends Place {
 	@Override
 	public int walk(String s) {
 		
-		System.out.println("This is the car");
-		return 0;
+		if (((s.contains("sushi")) || (s.contains("downtown")) ||(s.contains("restaurant"))) && (s.contains("drive")))
+		{
+			return 11;
+		}else {
+			System.out.println("There is no such place, please try another place");
+		}
+
+		return pos;
 	}
 
 

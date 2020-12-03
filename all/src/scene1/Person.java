@@ -1,8 +1,8 @@
 package scene1;
 
-public abstract class Person {
+public abstract class Person implements personBehaviour {
 
-	String name;
+	public String name;
 	int age;
 	private int position;
 	String job;
@@ -21,7 +21,7 @@ public abstract class Person {
 		this.job = job;
 	}
 
-	public abstract void talk();
+	public abstract void talk(Player p);
 
 	@Override
 	public String toString() {
@@ -35,6 +35,9 @@ public abstract class Person {
 
 	public synchronized void setPosition(int position) {
 		this.position = position;
+	}
+
+	protected void update(int position2) {
 	}
 
 }

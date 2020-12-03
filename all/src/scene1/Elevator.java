@@ -4,7 +4,7 @@ public class Elevator extends Place {
 	String[] avaliablePos = { "hallway" };
 
 	public Elevator() {
-		super("You have entered the Elevator you can go back to the hallway or exit to your car.", 2, false);
+		super("You have entered the Elevator you can go back to the hallway or exit to your car.", 2, true);
 		items.add(new Button("grey"));
 	}
 
@@ -15,13 +15,11 @@ public class Elevator extends Place {
 
 	@Override
 	public int walk(String s) {
-		for (int i = 0; i < avaliablePos.length; i++) {
-			if ((s.contains(avaliablePos[i])) && (s.contains("walk"))) {
-				return i;
-			}
+		if ((s.contains(avaliablePos[0])) && (s.contains("walk"))) {
+			return (1);
+		} else {
+			System.out.println("There is no such place, please try another place");
 		}
-		System.out.println("There is no such place, please try another place");
-
 		return pos;
 	}
 

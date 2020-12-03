@@ -10,9 +10,11 @@ public class LaundryRoom extends Place {
 
 	@Override
 	public void look() {
-		System.out.println("watch out from the wet floor, you can see the follwoing objects:");
-		for (int i = 0; i < items.size(); i++) {
-			System.out.println(items.get(i).description);
+		if(!items.isEmpty()) {
+			System.out.println("watch out from the wet floor, you can see the follwoing objects:");
+			for (int i = 0; i < items.size(); i++) {
+				System.out.println(items.get(i).description);
+			}
 		}
 		System.out.println("You can only walk to the hallway");
 	}

@@ -20,7 +20,7 @@ public class Victim extends Person {
 
 
 	@Override
-	public void talk() {
+	public void talk(Player p) {
 		System.out.println("I'm dead");
 		
 	}

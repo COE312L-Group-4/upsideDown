@@ -4,17 +4,21 @@ import java.io.*;
 import java.util.*;
 import javax.sound.sampled.*;
 
-import scene2.talkCommand;
+import scene2.*;
+import scene3.*;
 
 public class Driver {
 
 	public static void main(String[] args) throws Exception {
-		TCP_Client tcp = new TCP_Client("192.168.0.163", 56615); // N 192.168.1.133 // A 192.168.0.135
-		// -------------Nadeen-----------Sound declerations--------------------------------
+		// ------------Sensor connection----------------------
+		TCP_Client tcp = new TCP_Client("192.168.0.163", 58194); // N 192.168.1.133 // A 192.168.0.135
+
+		// ------------------------Sound declerations--------------------------------
 		Sound powerUp = new Sound("Power_Up_Ray-Mike_Koenig-800933783.wav");
 		Sound alarm = new Sound("TIMER2.wav");
+		Sound phoneRing = new Sound("PhoneRingtone.wav");
 
-		// --Nouran--
+		// ------------------File I/O notebook-----------
 		FileWriter fw = new FileWriter("notebook.txt", true);
 		BufferedWriter bw = new BufferedWriter(fw);
 		FileReader fr = new FileReader("notebook.txt");
@@ -23,7 +27,7 @@ public class Driver {
 		writer.write("");
 		writer.close();
 
-		// --Ahmed--
+		// --File I/O : Phone notebook
 		FileWriter fwp = new FileWriter("phonenotebook.txt", true);
 		BufferedWriter bwp = new BufferedWriter(fwp);
 		FileReader frp = new FileReader("phonenotebook.txt");
@@ -35,6 +39,7 @@ public class Driver {
 		Notebook notebook = new Notebook(bw, fr);
 		Notebook phonenotebook = new Notebook(bwp, frp);
 
+		// ----------Welcome and Game introduction------------------
 		System.out.println("**Welcome to Upside Down!**\n");
 		Scanner cin = new Scanner(System.in);
 		System.out.println(
@@ -46,9 +51,11 @@ public class Driver {
 
 		// Intailize extra room
 		Place security = new SecurityRoom();
+		Place kitchen = new Kitchen();
 
 		// Places Initialization
-		Place[] places = new Place[8];
+		Place[] places = new Place[15];
+		// -------Scene1----------
 		places[0] = new car();
 		places[1] = new Hallway(tcp, security);
 		places[2] = new Elevator();
@@ -57,6 +64,15 @@ public class Driver {
 		places[5] = new PlayerRoom(powerUp);
 		places[6] = security;
 		places[7] = new VictimRoom(p, tcp);
+		places[8] = new Room301();
+		places[9] = new Room302();
+		places[10] = new Room303();
+		// -------Scene2----------
+		places[11] = new DinningHall(powerUp, kitchen);
+		places[12] = kitchen;
+
+		// --------Scene3----------
+		places[13] = new LivingRoom(p, phoneRing);
 
 		Time t = new Time(p);
 		SecurityControl sc = new SecurityControl(t, p, places[4]);
@@ -71,10 +87,9 @@ public class Driver {
 		helpCommand hcomm = new helpCommand();
 		readNotebookCommand ncomm = new readNotebookCommand(p);
 		talkCommand tcomm = new talkCommand(places, p);
-		Command[] ca = { lcomm, wcomm, ucomm, scomm, bcomm, rbcomm, hcomm, ncomm, tcomm };
+		fightCommand fcomm = new fightCommand(places,p, tcp);
+		Command[] ca = { lcomm, wcomm, ucomm, scomm, bcomm, rbcomm, hcomm, ncomm, tcomm, fcomm };
 		ControlPanel cp = new ControlPanel(ca);
-
-		// Enter the Start Phrase
 
 		// Story descrpition
 		System.out.println("\nAs the famous detective " + name
@@ -87,6 +102,9 @@ public class Driver {
 		alarm.playSound();
 		String MP;
 
+		p.setEvidence(4);
+		p.setPosition(0);
+
 		while (!t.isTimeup()) {
 
 			MP = cin.nextLine();
@@ -94,7 +112,7 @@ public class Driver {
 
 			if (MP.contains("look") && MP.contains("around")) {
 				cp.commandCalled(0, MP);
-			} else if (MP.contains("walk")) {
+			} else if (MP.contains("walk") || MP.contains("drive")) {
 				cp.commandCalled(1, MP);
 			} else if (MP.contains("use") || MP.contains("open")) {
 				cp.commandCalled(2, MP);
@@ -110,6 +128,8 @@ public class Driver {
 				cp.commandCalled(7, MP);
 			} else if (MP.contains("talk")) {
 				cp.commandCalled(8, MP);
+			} else if (MP.contains("fight")) {
+				cp.commandCalled(9, MP);
 			} else if (MP.equals("i give up")) {
 				System.out.println("I was doubting you from the beginning...\n");
 				t.setTimeup(true);

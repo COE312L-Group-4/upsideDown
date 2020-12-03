@@ -50,7 +50,7 @@ public class MovingSecurity extends Security {
 	}
 
 	@Override
-	public void talk() {
+	public void talk(Player p) {
 		System.out.println("I'm a moving security");
 		
 	}

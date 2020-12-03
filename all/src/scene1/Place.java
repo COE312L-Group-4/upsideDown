@@ -8,7 +8,7 @@ public abstract class Place {
 	protected ArrayList<Object> items;
 	protected ArrayList<Person> characters;
 
-	int pos;
+	protected int pos;
 	private boolean open;
 
 	public Place() {
@@ -105,11 +105,11 @@ public abstract class Place {
 		}
 	}
 
-	public void talkInPlace(String s) {
+	public void talkInPlace(String s, Player p) {
 		if (!characters.isEmpty()) {
 			for (int i = 0; i < characters.size(); i++) {
 				if (s.contains(characters.get(i).name.toLowerCase())) {
-					characters.get(i).talk();
+					characters.get(i).talk(p);
 					return;
 				}
 			}
