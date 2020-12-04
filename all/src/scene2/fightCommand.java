@@ -11,27 +11,17 @@ public class fightCommand implements Command {
 		this.places = places;
 		this.p = p;
 		this.tcp = tcp;
+		this.fst = new HandFight(tcp,p);
 	}
 
 	@Override
 	public void execute(String s) {
 		if (p.getPosition() == 12) {
-			if (s.contains("gun")) {
-				fst = new GunFight(p,tcp);
-			} else if (s.contains("hand")) {
-				fst = new HandFight(tcp);
-			} else if (s.contains("pan")) {
-				fst = new PanFight(tcp);
-			} else if (s.contains("knife")) {
-				fst = new KnifeFight(tcp);
-			} else {
-				System.out.println("I cannot fight using this!");
-				return;
-			}
-			fst.fight();
+			fst.performFight(s,fst,p,tcp);
 		} else {
 			System.out.println("I should not fight anyone here");
 			return;
 		}
 	}
 }
+//panel for each situation

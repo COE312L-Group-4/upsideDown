@@ -9,7 +9,6 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.DataLine.Info;
 
 import scene2.*;
-import scene3.*;
 
 public class Sound {
 	// -------------Nadeen-----------Sound--------------------------------

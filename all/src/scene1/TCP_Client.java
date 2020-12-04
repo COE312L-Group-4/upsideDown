@@ -150,6 +150,7 @@ public class TCP_Client implements Runnable, SubjectSensor, SubjectFight {
 				if ((gyrxabs >= 2)) {
 					notifyObservers(accx, accy, accz, (double) gyrxabs, gyry, gyrz);
 					Thread.sleep(1000);
+
 				}
 				if (countLandLeft >= 7) {
 					orintation = 3;
@@ -159,18 +160,27 @@ public class TCP_Client implements Runnable, SubjectSensor, SubjectFight {
 					orintation = 0;
 				}
 				if (orintation == 4 || orintation == 3) {
-					notifyObservers(accx, accy, accz, (double) gyrxabs, gyry, gyrz, orintation, " ");
+					notifyObservers(accx, accy, accz, (double) gyrxabs, gyry, gyrz, orintation);
 					Thread.sleep(1000);
-				}
 
+				}
+				System.out.println("accyabs= "+accyabs+"\taccy= "+accy);
 				if ((accyabs >= 1.0)) {
-					notifyObservers(accx, accyabs, accz, gyrx, gyry, gyrz, orintation, " ");
+					System.out.println("b4");
+					notifyObservers(accx, accyabs, accz, gyrx, gyry, gyrz, orintation);
+					System.out.println("after");
 					Thread.sleep(1000);
 				}
 				if ((accy >= 0.1 || accy <= -0.1) && (accz <= -0.5) && (gyrx >= 0.6 || gyrx <= -0.3)) {
-					notifyObservers(accx, accy, accz, gyrx, gyry, gyrz, orintation, " ");
+					notifyObservers(accx, accy, accz, gyrx, gyry, gyrz, orintation);
+					Thread.sleep(1000);
+
+				}
+				if ((accx >= 0.2 || accx <= -0.8) && (accy >= 0.7) && (gyrz >= 1 || gyrz <= -1)) {
+					notifyObservers(accx, accy, accz, gyrx, gyry, gyrz, orintation);
 					Thread.sleep(1000);
 				}
+
 			}
 		} catch (UnknownHostException ex) {
 
@@ -219,10 +229,10 @@ public class TCP_Client implements Runnable, SubjectSensor, SubjectFight {
 
 	@Override
 	public void notifyObservers(double accx, double accy, double accz, double gyrx, double gyry, double gyrz,
-			int orientation, String activity) {
+			int orientation) {
 		for (int i = 0; i < observersfight.size(); i++) {
 			FightStrategy observersf = (FightStrategy) observersfight.get(i);
-			observersf.update(accx, accy, accz, gyrx, gyry, gyrz, orientation, activity);
+			observersf.update(accx, accy, accz, gyrx, gyry, gyrz, orientation);
 		}
 	}
 

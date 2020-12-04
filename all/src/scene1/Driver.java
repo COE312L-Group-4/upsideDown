@@ -5,7 +5,6 @@ import java.util.*;
 import javax.sound.sampled.*;
 
 import scene2.*;
-import scene3.*;
 
 public class Driver {
 
@@ -47,7 +46,7 @@ public class Driver {
 		System.out.println("Type your name to start..");
 		String name = cin.nextLine();
 
-		Player p = Player.getInstance(name, 40, 5, notebook, phonenotebook);
+		Player p = Player.getInstance(name, 40, 12, notebook, phonenotebook);
 
 		// Intailize extra room
 		Place security = new SecurityRoom();
@@ -71,9 +70,6 @@ public class Driver {
 		places[11] = new DinningHall(powerUp, kitchen);
 		places[12] = kitchen;
 
-		// --------Scene3----------
-		places[13] = new LivingRoom(p, phoneRing);
-
 		Time t = new Time(p);
 		SecurityControl sc = new SecurityControl(t, p, places[4]);
 
@@ -87,7 +83,7 @@ public class Driver {
 		helpCommand hcomm = new helpCommand();
 		readNotebookCommand ncomm = new readNotebookCommand(p);
 		talkCommand tcomm = new talkCommand(places, p);
-		fightCommand fcomm = new fightCommand(places,p, tcp);
+		fightCommand fcomm = new fightCommand(places, p, tcp);
 		Command[] ca = { lcomm, wcomm, ucomm, scomm, bcomm, rbcomm, hcomm, ncomm, tcomm, fcomm };
 		ControlPanel cp = new ControlPanel(ca);
 
@@ -102,8 +98,7 @@ public class Driver {
 		alarm.playSound();
 		String MP;
 
-		p.setEvidence(4);
-		p.setPosition(0);
+		p.setPosition(12);
 
 		while (!t.isTimeup()) {
 

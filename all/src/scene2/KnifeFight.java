@@ -6,23 +6,39 @@ import scene1.Object;
 public class KnifeFight extends FightStrategy {
 	boolean knife;
 	private TCP_Client tcp;
-	
-	public KnifeFight(TCP_Client tcp) {
+	int updateCount;
+	Player p;
+	public KnifeFight(TCP_Client tcp, Player p) {
 		this.tcp = tcp;
 		this.tcp.registerObserver(this);
 		this.knife = false;
+		this.updateCount = 0;
+		this.p = p;
 	}
 
 	@Override
 	public void fight() {
 		knife = true;
+		System.out.println("Use sensor for knife fight method");
 	}
 
 	@Override
-	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz, int Orint,String act) {
-		if(knife) {
-			
+	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz, int Orint) {
+		if (knife) {
+			if ((accx >= 0.2 || accx <= -0.8) && (accy >= 0.7) && (gyrz >= 1 || gyrz <= -1)) {
+				updateCount++;
+				if (updateCount <= 2) {
+					System.out.println("I am hurt by knife");
+				} else {
+					////Confess(p);
+					knife = false;
+				}
+			}
 		}
+	}
+
+	public void checkItem() {
+
 	}
 
 }

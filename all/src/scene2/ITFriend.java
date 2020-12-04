@@ -3,7 +3,6 @@ package scene2;
 import java.util.Scanner;
 
 import scene1.*;
-import scene3.*;
 
 //This should be an observer for the time or the location of the player so he can talk
 public class ITFriend extends Person implements Observer {
@@ -14,7 +13,7 @@ public class ITFriend extends Person implements Observer {
 	Scanner cin;
 
 	private ITFriend(Player player, Sound s) {
-		super("Oda", 30, 13, "IT Consultant");
+		super("Oda", 30, 0, "IT Consultant");
 		this.player = player;
 		player.registerObserver(this);
 		this.s = s;

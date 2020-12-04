@@ -3,9 +3,9 @@ package scene2;
 import scene1.*;
 
 public class GunFight extends FightStrategy {
-	boolean fight;
 	Player p;
 	boolean gun;
+	boolean fight;
 	private TCP_Client tcp;
 	int updateCount;
 
@@ -20,32 +20,41 @@ public class GunFight extends FightStrategy {
 
 	@Override
 	public void fight() {
-		fight = true;
-		for (int i = 0; i < p.bag.size(); i++) {
-			if (p.bag.get(i).name.contains("gun")) {
-				System.out.println("Use the sensor now..");
-				gun = true;
-			}
-		}
 		if (gun) {
+			fight = true;
+			System.out.println(
+					"Place your phone pointing to the moitor with the Phone screen pointing on one of the sides to threaten Haro Satos with the Gun");
 
-		} else {
-			System.out.println("I forgot my gun in the car!");
 		}
 	}
 
 	@Override
-	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz, int Orint,
-			String act) {
-		if (fight && gun) {
+	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz, int Orint) {
+		if (gun && fight) {
 			if (Orint == 3 || Orint == 4) {
 				updateCount++;
-				if (updateCount > 5) {
+				if (updateCount <= 2) {
 					System.out.println("I am hurt by gun");
+				} else {
+					// Confess(p);
 					fight = false;
 				}
 			}
 		}
 
+	}
+
+	public void checkItem() {
+		for (int i = 0; i < p.bag.size(); i++) {
+			if (p.bag.get(i).name.contains("gun")) {
+				gun = true;
+				return;
+			}
+		}
+		System.out.println("Ohhh You forgot your gun in the car, You can't fight using the Gun, try another weapon!");
+	}
+	@Override
+	public boolean ItemNeeded() {
+		return true;
 	}
 }
