@@ -22,16 +22,12 @@ public abstract class FightStrategy implements ÒbserverStrategy {
 
 	protected FightStrategy checkInput(String s, Player p, TCP_Client tcp) {
 		if (s.toLowerCase().contains("gun")) {
-			System.out.println("Contains gun");
 			return new GunFight(p, tcp);
 		} else if (s.toLowerCase().contains("hand")) {
-			System.out.println("Contains hand");
 			return new HandFight(tcp, p);
 		} else if (s.toLowerCase().contains("pan")) {
-			System.out.println("Contains pan");
 			return new PanFight(tcp, p);
 		} else if (s.toLowerCase().contains("knife")) {
-			System.out.println("Contains knife");
 			return new KnifeFight(tcp, p);
 		} else {
 			System.out.println("You can only fight by hand by default...");

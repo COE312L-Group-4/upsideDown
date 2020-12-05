@@ -1,4 +1,6 @@
 package scene1;
+import scene2.*;
+
 
 public abstract class Person implements personBehaviour {
 
@@ -37,7 +39,11 @@ public abstract class Person implements personBehaviour {
 		this.position = position;
 	}
 
-	protected void update(int position2) {
+
+	public void update(int p) {
+		
 	}
+
+	
 
 }

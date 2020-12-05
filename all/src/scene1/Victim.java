@@ -1,4 +1,6 @@
 package scene1;
+import scene2.*;
+
 
 // Use the Singleton pattern 
 public class Victim extends Person {

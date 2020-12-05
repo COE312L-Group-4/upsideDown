@@ -1,4 +1,6 @@
 package scene1;
+import scene2.*;
+
 
 public abstract class Object implements ObjectBehaviour, ObserverSensor {
 

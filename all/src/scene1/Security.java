@@ -1,20 +1,27 @@
 package scene1;
+import scene2.*;
 
-public abstract class Security extends Person implements Observer{
-	Player p;
+
+public abstract class Security extends Person implements ObserverTime, Observer {
+	Player player;
 	Time t;
+
 	public Security(Player p, Time t) {
 		super();
 		this.t = t;
-		this.p=p;
+		this.player = p;
 	}
 
 	public Security(String name, int age, int position, String job, Player p, Time t) {
 		super(name, age, position, job);
-		this.p=p;
+		this.player = p;
 		this.t = t;
 	}
+
 	public abstract void posChange();
 
 	public abstract void update(int p);
+
+	public abstract void updateTime(int count);
+
 }

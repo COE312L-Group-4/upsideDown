@@ -1,4 +1,6 @@
 package scene1;
+import scene2.*;
+
 
 public interface ObserverSensor {
 	void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz);

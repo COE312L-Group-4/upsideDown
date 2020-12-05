@@ -1,6 +1,9 @@
 package scene1;
+import scene2.*;
+
 import java.awt.*;  
 import javax.swing.JFrame;
+import scene2.*;
 
 public class MyCanvas extends Canvas{
 	String imagepath;

@@ -1,5 +1,7 @@
 package scene1;
 
+import scene2.*;
+
 public class FireExtinguisher extends Object {
 
 	boolean use;
@@ -27,15 +29,19 @@ public class FireExtinguisher extends Object {
 
 	@Override
 	public void use(Player p) {
-		System.out.println("You can use the fire extinguisher to break the lock on the security room door!");
-		System.out.println("Make your phone face the wall then move your phone up and down as fast as you can");
-		use = true;
+		if (!sr.isOpen()) {
+			System.out.println("You can use the fire extinguisher to break the lock on the security room door!");
+			System.out.println("Make your phone face the wall then move your phone up and down as fast as you can");
+			use = true;
+		} else {
+			System.out.println("The door is already open!");
+		}
 	}
 
 	@Override
 	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz) {
 		if (use && !sr.isOpen()) {
-			if ((accy >= 0.2 || accy <= -0.2) && (accz <= -1.1 || accz >= 0.2)) {
+			if ((accy >= 0.2 || accy <= -0.2) && (accz <= -0.6 || accz >= 0.2)) {
 				System.out.println("You broke the door of the security room you can now access it!");
 				sr.setOpen(true);
 				use = false;

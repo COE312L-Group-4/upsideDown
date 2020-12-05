@@ -1,5 +1,6 @@
 package scene2;
 
+
 import scene1.*;
 import scene1.Object;
 
@@ -20,8 +21,7 @@ public class KnifeFight extends FightStrategy {
 	@Override
 	public void fight() {
 		knife = true;
-		System.out.println("Use sensor for knife fight method");
-		p.setHealth(p.getHealth()-30);
+		System.out.println("Place the phone screen up while moving the phone diagonally to use the knife");
 
 	}
 
@@ -34,7 +34,7 @@ public class KnifeFight extends FightStrategy {
 					System.out.println("I am hurt by knife");
 				} else {
 					knife = false;
-					//this.tcp.removeObsever(this);
+					p.setHealth(p.getHealth()-30);
 					Confess(p);
 				}
 			}

@@ -1,4 +1,6 @@
 package scene1;
+import scene2.*;
+
 
 public class walkCommand implements Command {
 	Place[] places;

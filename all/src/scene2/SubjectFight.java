@@ -1,6 +1,6 @@
 package scene2;
 
-import scene1.Object;
+import scene1.*;
 
 public interface SubjectFight {
 	public void registerObserver(FightStrategy fs);

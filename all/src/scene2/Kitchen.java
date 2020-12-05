@@ -1,12 +1,14 @@
 package scene2;
+import scene1.*;
+
 
 import scene1.Place;
 
 public class Kitchen extends Place {
-	String[] avaliablePos = { "dining hall", " ","exit" };
+	String[] avaliablePos = { "dining hall"};
 
 	public Kitchen() {
-		super("You have entered the kitchen!", 12, true);
+		super("You have entered the kitchen!", 12, false);
 		characters.add(new HaruSato());
 	}
 
@@ -23,14 +25,14 @@ public class Kitchen extends Place {
 		for (int i = 0; i < characters.size(); i++) {
 			System.out.println(characters.get(i).name);
 		}
-		System.out.println("You can walk to the dining hall or walk to exit");
+		System.out.println("You can walk to the dining hall");
 	}
 
 	@Override
 	public int walk(String s) {
 		for (int i = 0; i < avaliablePos.length; i++) {
 			if ((s.contains(avaliablePos[i])) && (s.contains("walk"))) {
-				return (i + 11);
+				return 11;
 			}
 		}
 		System.out.println("There is no such place, please try another place");

@@ -1,4 +1,5 @@
 package scene1;
+import scene2.*;
 
 public class MovingSecurity extends Security {
 
@@ -10,14 +11,17 @@ public class MovingSecurity extends Security {
 
 	public MovingSecurity(Player p, Time t, Place laundry) {
 		super(p, t);
-		p.registerObserver(this);
+		player.registerObserver(this);
+		t.registerObserver(this);
 		place = laundry;
 		c = 0;
 	}
 
 	public MovingSecurity(String name, int age, int position, String job, Player p, Time t) {
 		super(name, age, position, job, p, t);
-		p.registerObserver(this);
+		player.registerObserver(this);
+		t.registerObserver(this);
+
 	}
 
 	@Override
@@ -34,8 +38,9 @@ public class MovingSecurity extends Security {
 		c++;
 		c = c % 16;
 
-		if (p.getPosition() == this.getPosition()) {
+		if (player.getPosition() == this.getPosition()) {
 			System.out.println("You have been caught by the security!\nGame over.");
+			player.removeObsever(this);
 			t.setTimeup(true);
 		}
 
@@ -45,6 +50,7 @@ public class MovingSecurity extends Security {
 	public void update(int p) {
 		if (this.getPosition() == p) {
 			System.out.println("You have been caught by the security!\nGame over!.");
+			player.removeObsever(this);
 			t.setTimeup(true);
 		}
 	}
@@ -52,7 +58,16 @@ public class MovingSecurity extends Security {
 	@Override
 	public void talk(Player p) {
 		System.out.println("I'm a moving security");
-		
+
+	}
+
+	@Override
+	public void updateTime(int count) {
+		if (count == 180) {
+			this.posChange();
+		} else if (count >= 180 && count % 30 == 0) {
+			this.posChange();
+		}
 	}
 
 }

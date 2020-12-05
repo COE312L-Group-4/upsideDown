@@ -1,4 +1,6 @@
 package scene1;
+import scene2.*;
+
 import java.io.File;
 
 import javax.sound.sampled.AudioFormat;

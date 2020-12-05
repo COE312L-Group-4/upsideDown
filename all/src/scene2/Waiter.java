@@ -1,9 +1,8 @@
 package scene2;
 
 import java.util.Scanner;
+import scene1.*;
 
-import scene1.Person;
-import scene1.Player;
 
 public class Waiter extends Person {
 	Scanner cin;

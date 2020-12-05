@@ -1,4 +1,6 @@
 package scene1;
+import scene2.*;
+
 import java.util.ArrayList;
 
 public class VictimRoom extends Place {

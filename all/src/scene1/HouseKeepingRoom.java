@@ -1,4 +1,5 @@
 package scene1;
+import scene2.*;
 
 public class HouseKeepingRoom extends Place {
 	String[] avaliablePos = { "hallway" };

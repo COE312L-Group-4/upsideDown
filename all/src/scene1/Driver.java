@@ -10,9 +10,9 @@ public class Driver {
 
 	public static void main(String[] args) throws Exception {
 		// ------------Sensor connection----------------------
-			TCP_Client tcp = new TCP_Client("192.168.0.163", 58194);
-		 // N 192.168.1.133 // A 192.168.0.135
+		// N 192.168.1.133 // A 192.168.0.135
 
+		
 		// ------------------------Sound declerations--------------------------------
 		Sound powerUp = new Sound("Power_Up_Ray-Mike_Koenig-800933783.wav");
 		Sound alarm = new Sound("TIMER2.wav");
@@ -48,8 +48,10 @@ public class Driver {
 		String name = cin.nextLine();
 
 		Player p = Player.getInstance(name, 40, 5, notebook, phonenotebook);
+		TCP_Client tcp = new TCP_Client("192.168.0.163", 58194, p);
 
 		// Intailize extra room
+		ITFriend it=ITFriend.getInstance(p);
 		Place security = new SecurityRoom();
 		Place kitchen = new Kitchen();
 
@@ -72,7 +74,9 @@ public class Driver {
 		places[12] = kitchen;
 
 		Time t = new Time(p);
-		SecurityControl sc = new SecurityControl(t, p, places[4]);
+		// SecurityControl sc = new SecurityControl(t, p, places[4]);
+		Security s1 = new StaticSecurity(p, t);
+		Security s2 = new MovingSecurity(p, t, places[4]);
 
 		// Commands intialization
 		lookCommand lcomm = new lookCommand(places, p);
@@ -99,9 +103,9 @@ public class Driver {
 		alarm.playSound();
 		String MP;
 
-		//p.setPosition(12);
+		// p.setPosition(12);
 
-		while (!t.isTimeup()) {
+		while (!p.isLoss() && !p.isFinish()) {
 
 			MP = cin.nextLine();
 			MP = MP.toLowerCase();
@@ -131,12 +135,11 @@ public class Driver {
 				t.setTimeup(true);
 
 			} else {
-				if (!t.isTimeup()) {
+				if (!p.isLoss() && !p.isFinish()) {
 					System.out.println("Invalid command \nplease enter a valid command");
 				}
 			}
 		}
-		
 		System.out.println(".... THE END......\nThank you for playing UpsideDown");
 
 		fw.flush();

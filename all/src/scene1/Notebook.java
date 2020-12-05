@@ -1,5 +1,8 @@
 package scene1;
+import scene2.*;
+
 import java.io.*;
+import scene2.*;
 
 public class Notebook{
 

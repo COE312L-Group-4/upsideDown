@@ -1,4 +1,6 @@
 package scene2;
+import scene1.*;
+
 
 import java.util.Scanner;
 
@@ -9,21 +11,19 @@ public class ITFriend extends Person implements Observer {
 
 	private static ITFriend instance;
 	Player player;
-	Sound s;
 	Scanner cin;
 
-	private ITFriend(Player player, Sound s) {
+	private ITFriend(Player player) {
 		super("Oda", 30, 0, "IT Consultant");
-		this.player = player;
+		this.player = player;	
 		player.registerObserver(this);
-		this.s = s;
 		cin = new Scanner(System.in);
 
 	}
 
-	public static synchronized ITFriend getInstance(Player p, Sound s) {
+	public static synchronized ITFriend getInstance(Player p) {
 		if (instance == null) {
-			instance = new ITFriend(p, s);
+			instance = new ITFriend(p);
 		}
 		return instance;
 	}
@@ -147,5 +147,7 @@ public class ITFriend extends Person implements Observer {
 		}
 
 	}
+
+
 
 }

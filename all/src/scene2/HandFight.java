@@ -18,19 +18,19 @@ public class HandFight extends FightStrategy {
 		hand = true;
 		System.out.println(
 				"Move your phone forward and backward with the screen facing up to punch haru sato repeatedly");
-		p.setHealth(p.getHealth()-30);
 
 	}
 
 	@Override
 	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz, int Orint) {
 		if (hand) {
-			if ((accy >= 1.0)) {
+			if ((accy >= 0.2)) {
 				updateCount++;
 				if (updateCount <= 2) {
 					System.out.println("I am hurt by hand");
 				} else {
 					hand = false;
+					p.setHealth(p.getHealth()-30);
 					Confess(p);
 
 				}

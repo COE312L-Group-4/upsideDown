@@ -1,5 +1,7 @@
 package scene1;
 
+import scene2.*;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -25,11 +27,12 @@ public class TCP_Client implements Runnable, SubjectSensor, SubjectFight {
 	// need the port
 	int port = 8080;
 
+	Player p;
 	JSONParser parser = new JSONParser();
 	private ArrayList observers;
 	private ArrayList observersfight;
 
-	TCP_Client(String host, int port) {
+	TCP_Client(String host, int port, Player p) {
 
 		// set the ip address and the port of the
 		// the server we will connect to.
@@ -38,9 +41,10 @@ public class TCP_Client implements Runnable, SubjectSensor, SubjectFight {
 		this.port = port;
 		observers = new ArrayList();
 		observersfight = new ArrayList();
-
+		this.p = p;
 		// make this a thread
 		Thread t = new Thread(this);
+		t.setDaemon(true);
 		t.start();
 	}
 
@@ -60,7 +64,7 @@ public class TCP_Client implements Runnable, SubjectSensor, SubjectFight {
 			String line = "";
 
 			int count;
-			while (true) {
+			while (!p.isLoss() && !p.isFinish()) {
 				// Extracting the x,y,z coordinates
 				double accx = 0;
 				double accy = 0;
@@ -142,14 +146,14 @@ public class TCP_Client implements Runnable, SubjectSensor, SubjectFight {
 				gyrzabs /= count;
 
 				// ----------------------------------------------------------------------------
-				if ((accy >= 0.2 || accy <= -0.2) && (accz <= -1.1 || accz >= 0.2)) {
+				if ((accy >= 0.2 || accy <= -0.2) && (accz <= -0.6 || accz >= 0.2)) {
 					notifyObservers(accx, accy, accz, gyrx, gyry, gyrz);
-					//Thread.sleep(1000);
+					// Thread.sleep(1000);
 
 				}
 				if ((gyrxabs >= 2)) {
 					notifyObservers(accx, accy, accz, (double) gyrxabs, gyry, gyrz);
-					//Thread.sleep(1000);
+					// Thread.sleep(1000);
 
 				}
 				if (countLandLeft >= 7) {
@@ -159,27 +163,30 @@ public class TCP_Client implements Runnable, SubjectSensor, SubjectFight {
 				} else {
 					orintation = 0;
 				}
+
 				if (orintation == 4 || orintation == 3) {
 					notifyObservers(accx, accy, accz, (double) gyrxabs, gyry, gyrz, orintation);
-					//Thread.sleep(1000);
+					// Thread.sleep(1000);
 
 				}
-				if ((accyabs >= 1.0)) {
-					notifyObservers(accx, accyabs, accz, gyrx, gyry, gyrz, orintation);
-					//Thread.sleep(1000);
-				}
-				if ((accy >= 0.1 || accy <= -0.1) && (accz <= -0.5) && (gyrx >= 0.6 || gyrx <= -0.3)) {
+
+				if ((accy >= 0.2)) {
 					notifyObservers(accx, accy, accz, gyrx, gyry, gyrz, orintation);
-					//Thread.sleep(1000);
+					// Thread.sleep(1000);
+				}
+
+				if ((accy >= 0.4 || accy <= -0.1) && (accz <= -0.5) && (gyrx >= 1 || gyrx <= -1)) {
+					notifyObservers(accx, accy, accz, gyrx, gyry, gyrz, orintation);
+					// Thread.sleep(1000);
 
 				}
-				if ((accx >= 0.2 || accx <= -0.8) && (accy >= 0.7) && (gyrz >= 1 || gyrz <= -1)) {
+
+				if ((accx >= 0.2 || accx <= -0.8) && (accy >= 1.5) && (gyrz >= 0.5 || gyrz <= -0.5)) {
 					notifyObservers(accx, accy, accz, gyrx, gyry, gyrz, orintation);
-					//Thread.sleep(1000);
+					// Thread.sleep(1000);
 				}
-				
+
 				Thread.sleep(1000);
-
 
 			}
 		} catch (UnknownHostException ex) {

@@ -1,4 +1,6 @@
 package scene1;
+import scene2.*;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -44,7 +46,7 @@ public class SecurityCamera extends Object {
 						MyCanvas m=new MyCanvas("video-evidence-901.jpeg");  
 				        JFrame f=new JFrame();  
 				        f.add(m);  
-				        f.setSize(700,700);  
+				        f.setSize(1920,1080);  
 				        f.setVisible(true); 
 				        //****************************************
 						p.nbook.write(

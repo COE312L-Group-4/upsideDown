@@ -23,8 +23,7 @@ public class GunFight extends FightStrategy {
 		if (gun) {
 			fight = true;
 			System.out.println(
-					"Place your phone pointing to the moitor with the Phone screen pointing on one of the sides to threaten Haro Satos with the Gun");
-			p.setHealth(p.getHealth()-20);
+					"Place your phone pointing to the moitor with the Phone screen pointing on one of the sides to threaten \nHaro Satos with the Gun");
 
 		}
 	}
@@ -38,6 +37,7 @@ public class GunFight extends FightStrategy {
 					System.out.println("I am hurt by gun");
 				} else {
 					fight = false;
+					p.setHealth(p.getHealth()-20);
 					Confess(p);
 				}
 			}

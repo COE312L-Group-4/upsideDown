@@ -1,4 +1,6 @@
 package scene1;
+import scene2.*;
+
 
 public class RoomWindow extends Object {
 	boolean use;
@@ -40,8 +42,8 @@ public class RoomWindow extends Object {
 						"Jumping was not a very smart move..\nLuckily you managed to land in the house keeping room room");
 				p.setPosition(3);
 				p.notifyObservers();
+				System.out.println("You hurt your leg..");
 				p.setHealth(p.getHealth() - 20);
-				System.out.println("You hurt your leg.. your new health is " + p.getHealth() + "/100");
 				p.setScore(p.getScore() + 10);
 				use = false;
 		}
