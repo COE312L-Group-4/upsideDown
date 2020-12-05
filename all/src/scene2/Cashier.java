@@ -44,6 +44,13 @@ public class Cashier extends Person {
 		System.out.println(name + ": He is the only chef here, you can find him in the kitchen, try making it quick!");
 		System.out.println(player.name + ": whatever...you barely have anyone here");
 		k.setOpen(true);
+		player.setEvidence(player.getEvidence() + 1);
+		player.setScore(player.getScore() + 10);
+		try {
+			player.nbook.write("Haru Sato is in the kitchen!");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }

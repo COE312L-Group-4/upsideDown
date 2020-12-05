@@ -66,7 +66,7 @@ public class ITFriend extends Person implements Observer {
 		fofo = true;
 		System.out.println("Yamamoto Takashi: " + s + " how can I help you?");
 		System.out.println(
-				"Choose your reply:\n1-I need you to find a location of an unknown number\n2-I need you to lookup a person called Haru Sato\n3-The victim was contacting someone with the initials YT");
+				"Choose your reply:\n1-I need you to find a location of an unknown number\n2-I need you to lookup a person called Haru Sato\n3-The victim was contacting someone with the initials HS");
 		reply = cin.nextLine();
 		while (fofo) {
 			switch (reply) {
@@ -83,7 +83,7 @@ public class ITFriend extends Person implements Observer {
 				fofo = false;
 				break;
 			case "3":
-				System.out.println(player.name + ": The victim was contacting someone with the initials YT");
+				System.out.println(player.name + ": The victim was contacting someone with the initials HS");
 				s = "I would need something more than this ";
 				fofo = false;
 				break;
@@ -121,6 +121,14 @@ public class ITFriend extends Person implements Observer {
 		}
 		System.out.println(player.name + ": Heading there right now.. thanks for your help");
 		System.out.println("Yamamoto Takashi: Anything for you brother!");
+		player.setEvidence(player.getEvidence() + 1);
+		player.setScore(player.getScore() + 10);
+		try {
+			player.nbook.write(
+					"Your suspect is located in a local happy sushi resturant at down town (25.3097° N, 55.4906° E)");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	@Override
@@ -131,7 +139,7 @@ public class ITFriend extends Person implements Observer {
 			// s.playSound();
 			String answer = cin.nextLine();
 			while (!answer.toLowerCase().contains("answer")) {
-				System.out.print("Type answer ");
+				System.out.print("Type answer: ");
 				answer = cin.nextLine();
 			}
 			answerPhone();

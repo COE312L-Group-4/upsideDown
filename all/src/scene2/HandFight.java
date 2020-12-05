@@ -4,13 +4,10 @@ import scene1.*;
 
 public class HandFight extends FightStrategy {
 	boolean hand;
-	private TCP_Client tcp;
 	int updateCount;
 	Player p;
 	public HandFight(TCP_Client tcp, Player p) {
-		super();
-		this.tcp = tcp;
-		this.tcp.registerObserver(this);
+		super(tcp);
 		this.hand = false;
 		this.updateCount = 0;
 		this.p=p;
@@ -21,18 +18,21 @@ public class HandFight extends FightStrategy {
 		hand = true;
 		System.out.println(
 				"Move your phone forward and backward with the screen facing up to punch haru sato repeatedly");
+		p.setHealth(p.getHealth()-30);
+
 	}
 
 	@Override
 	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz, int Orint) {
 		if (hand) {
-			if (accy >= 1) {
+			if ((accy >= 1.0)) {
 				updateCount++;
 				if (updateCount <= 2) {
 					System.out.println("I am hurt by hand");
 				} else {
-					//Confess(p);
 					hand = false;
+					Confess(p);
+
 				}
 			}
 		}

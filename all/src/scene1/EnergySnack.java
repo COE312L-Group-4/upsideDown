@@ -14,7 +14,7 @@ public class EnergySnack extends Object {
 			count++;
 			System.out.println("Best part of my day so far");
 			p.setHealth(p.getHealth() + 10);
-			System.out.println("You feel energized.. your health is now " + p.getHealth() + "/100");
+			System.out.println("You feel energized..");
 		} else {
 			System.out.println("I have eaten enough snacks for now");
 		}

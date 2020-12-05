@@ -5,12 +5,13 @@ import scene1.Object;
 
 public class KnifeFight extends FightStrategy {
 	boolean knife;
-	private TCP_Client tcp;
+	//private TCP_Client tcp;
 	int updateCount;
 	Player p;
 	public KnifeFight(TCP_Client tcp, Player p) {
-		this.tcp = tcp;
-		this.tcp.registerObserver(this);
+		super(tcp);
+		//this.tcp = tcp;
+		//this.tcp.registerObserver(this);
 		this.knife = false;
 		this.updateCount = 0;
 		this.p = p;
@@ -20,6 +21,8 @@ public class KnifeFight extends FightStrategy {
 	public void fight() {
 		knife = true;
 		System.out.println("Use sensor for knife fight method");
+		p.setHealth(p.getHealth()-30);
+
 	}
 
 	@Override
@@ -30,8 +33,9 @@ public class KnifeFight extends FightStrategy {
 				if (updateCount <= 2) {
 					System.out.println("I am hurt by knife");
 				} else {
-					////Confess(p);
 					knife = false;
+					//this.tcp.removeObsever(this);
+					Confess(p);
 				}
 			}
 		}

@@ -10,7 +10,8 @@ public class Driver {
 
 	public static void main(String[] args) throws Exception {
 		// ------------Sensor connection----------------------
-		TCP_Client tcp = new TCP_Client("192.168.0.163", 58194); // N 192.168.1.133 // A 192.168.0.135
+			TCP_Client tcp = new TCP_Client("192.168.0.163", 58194);
+		 // N 192.168.1.133 // A 192.168.0.135
 
 		// ------------------------Sound declerations--------------------------------
 		Sound powerUp = new Sound("Power_Up_Ray-Mike_Koenig-800933783.wav");
@@ -46,7 +47,7 @@ public class Driver {
 		System.out.println("Type your name to start..");
 		String name = cin.nextLine();
 
-		Player p = Player.getInstance(name, 40, 12, notebook, phonenotebook);
+		Player p = Player.getInstance(name, 40, 5, notebook, phonenotebook);
 
 		// Intailize extra room
 		Place security = new SecurityRoom();
@@ -98,7 +99,7 @@ public class Driver {
 		alarm.playSound();
 		String MP;
 
-		p.setPosition(12);
+		//p.setPosition(12);
 
 		while (!t.isTimeup()) {
 
@@ -135,6 +136,7 @@ public class Driver {
 				}
 			}
 		}
+		
 		System.out.println(".... THE END......\nThank you for playing UpsideDown");
 
 		fw.flush();

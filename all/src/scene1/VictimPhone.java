@@ -60,7 +60,7 @@ public class VictimPhone extends Object {
 			System.out.println("\t\t\t\tFrom:You\n\t\t\t\tWhat makes you think that there is any..");
 			System.out.println("From: Unknown\nwe both know what you did in\nthat case..She is innocent");
 			System.out.println(
-					"\t\t\t\tFrom:You\n\t\t\t\tI see what's going on now\n\t\t\t\tI know who you are and you are not getting away with it YT!");
+					"\t\t\t\tFrom:You\n\t\t\t\tI see what's going on now\n\t\t\t\tI know who you are and you are not getting away with it HS!");
 			System.out.println("---Unread Messages---");
 			System.out.println("From: Unknown\nThis was ur biggest yet final mistake, Salute");
 			System.out.println("----------------------");

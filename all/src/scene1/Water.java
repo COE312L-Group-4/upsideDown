@@ -13,8 +13,11 @@ public class Water extends Object {
 	public void use(Player p) {
 		if (count <= 3) {
 			count++;
-			p.setHealth(p.getHealth() + 5);
-			System.out.println("I feel hydrated..\nyour health is now " + p.getHealth() + "/100");
+		
+			System.out.println("I feel hydrated..\n");
+
+				p.setHealth(p.getHealth() + 5);
+			
 		} else {
 			System.out.println("Enough water for now");
 		}

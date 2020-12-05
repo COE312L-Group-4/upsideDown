@@ -1,4 +1,5 @@
 package scene1;
+
 import java.util.ArrayList;
 import java.util.Observer;
 
@@ -10,8 +11,20 @@ public class Player extends Person implements Subject {
 	private int Score;
 	private int evidence;
 	private int Health; // this could be a state or something
-	public  ArrayList<Object> bag;
-	Notebook nbook;
+	public ArrayList<Object> bag;
+	public Notebook nbook;
+	private boolean finish;
+
+	public boolean isFinish() {
+		return finish;
+	}
+
+	public void setFinish(boolean finish) {
+		this.finish = finish;
+		if(finish) {
+			System.out.println("Congratulations, You Won");
+		}
+	}
 
 	public synchronized int getScore() {
 		return Score;
@@ -33,14 +46,17 @@ public class Player extends Person implements Subject {
 	public synchronized void setHealth(int health) {
 		if (health > 100) {
 			Health = 100;
+		} else if (health == 100) {
+			System.out.println("Your health is already full!");
 		} else if (health < 0) {
 			Health = 0;
+		} else if (Health <= 15) {
+			System.out.println("Your health is dropping low, Health = " + Health + "/100");
 		} else {
 			Health = health;
+			System.out.println("Your health is now = " + health + " /100!");
 		}
-		if (Health <= 15) {
-			System.out.println("Your health is dropping low, Health = " + Health + "/100");
-		}
+
 	}
 
 	private Player(String name, int age, int position, Notebook nbook, Notebook phonenbook) {
@@ -52,6 +68,7 @@ public class Player extends Person implements Subject {
 		Health = 100;
 		evidence = 0;
 		this.nbook = nbook;
+		this.finish = false;
 	}
 
 	// can we use singleton with 2 constructors (Only used the non-default)
@@ -114,10 +131,9 @@ public class Player extends Person implements Subject {
 		}
 	}
 
-
 	@Override
 	public void talk(Player p) {
-		System.out.println("I'm a player");		
-		
+		System.out.println("I'm a player");
+
 	}
 }

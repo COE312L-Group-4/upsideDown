@@ -19,12 +19,7 @@ public class Sushi extends Object {
 		if (count < 4) {
 			System.out.println("Hmmm.. never tried sushi before");
 			sound.playSound();
-			if (p.getHealth() == 100) {
-				System.out.println("Your health is already full!");
-			} else {
-				p.setHealth(p.getHealth() + 5);
-				System.out.println("Your health is now = " + p.getHealth() + " /100!");
-			}
+			p.setHealth(p.getHealth() + 5);
 			count++;
 		} else {
 			System.out.println("enough sushi for now");

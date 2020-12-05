@@ -6,15 +6,15 @@ public class GunFight extends FightStrategy {
 	Player p;
 	boolean gun;
 	boolean fight;
-	private TCP_Client tcp;
+	//private TCP_Client tcp;
 	int updateCount;
 
 	public GunFight(Player p, TCP_Client subject) {
+		super(subject);
 		this.p = p;
 		this.gun = false;
 		this.fight = false;
-		this.tcp = subject;
-		this.tcp.registerObserver(this);
+		//this.tcp = subject;
 		updateCount = 0;
 	}
 
@@ -24,6 +24,7 @@ public class GunFight extends FightStrategy {
 			fight = true;
 			System.out.println(
 					"Place your phone pointing to the moitor with the Phone screen pointing on one of the sides to threaten Haro Satos with the Gun");
+			p.setHealth(p.getHealth()-20);
 
 		}
 	}
@@ -36,8 +37,8 @@ public class GunFight extends FightStrategy {
 				if (updateCount <= 2) {
 					System.out.println("I am hurt by gun");
 				} else {
-					// Confess(p);
 					fight = false;
+					Confess(p);
 				}
 			}
 		}
@@ -53,6 +54,7 @@ public class GunFight extends FightStrategy {
 		}
 		System.out.println("Ohhh You forgot your gun in the car, You can't fight using the Gun, try another weapon!");
 	}
+
 	@Override
 	public boolean ItemNeeded() {
 		return true;

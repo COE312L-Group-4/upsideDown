@@ -4,7 +4,9 @@ public class StaticSecurity extends Security {
 	public StaticSecurity(Player p, Time t) {
 		super(p, t);
 		p.registerObserver(this);
-		//register with time
+	//	t.registerObserver(this);
+
+
 	}
 
 	public StaticSecurity(String name, int age, int position, String job, Player p, Time t) {
