@@ -10,12 +10,16 @@ public abstract class Security extends Person implements ObserverTime, Observer 
 		super();
 		this.t = t;
 		this.player = p;
+		player.registerObserver(this);
+		this.t.registerObserver(this);
 	}
 
 	public Security(String name, int age, int position, String job, Player p, Time t) {
 		super(name, age, position, job);
 		this.player = p;
 		this.t = t;
+		player.registerObserver(this);
+		this.t.registerObserver(this);
 	}
 
 	public abstract void posChange();

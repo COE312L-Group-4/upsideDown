@@ -3,6 +3,7 @@ package scene2;
 import scene1.*;
 
 public class fightCommand implements Command {
+	
 	Place[] places;
 	Player p;
 	FightStrategy fst;
@@ -25,3 +26,4 @@ public class fightCommand implements Command {
 	}
 }
 //panel for each situation
+//location client

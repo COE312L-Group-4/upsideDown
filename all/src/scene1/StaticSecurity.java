@@ -6,15 +6,12 @@ public class StaticSecurity extends Security{
 
 	public StaticSecurity(Player p, Time t) {
 		super(p, t);
-		player.registerObserver(this);
-		this.t.registerObserver(this);
+
 
 	}
 
 	public StaticSecurity(String name, int age, int position, String job, Player p, Time t) {
 		super(name, age, position, job, p, t);
-		player.registerObserver(this);
-		this.t.registerObserver(this);
 	}
 
 	@Override

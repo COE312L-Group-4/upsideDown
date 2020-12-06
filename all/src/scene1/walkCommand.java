@@ -27,3 +27,4 @@ public class walkCommand implements Command {
 	}
 
 }
+//position as an obj ref to location

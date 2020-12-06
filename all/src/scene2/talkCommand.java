@@ -3,6 +3,8 @@ package scene2;
 import scene1.*;
 
 public class talkCommand implements Command {
+	
+	
 	Place[] places;
 	Player p;
 

@@ -1,4 +1,5 @@
 package scene1;
+
 import scene2.*;
 
 public class MovingSecurity extends Security {
@@ -11,17 +12,12 @@ public class MovingSecurity extends Security {
 
 	public MovingSecurity(Player p, Time t, Place laundry) {
 		super(p, t);
-		player.registerObserver(this);
-		t.registerObserver(this);
 		place = laundry;
 		c = 0;
 	}
 
 	public MovingSecurity(String name, int age, int position, String job, Player p, Time t) {
 		super(name, age, position, job, p, t);
-		player.registerObserver(this);
-		t.registerObserver(this);
-
 	}
 
 	@Override
