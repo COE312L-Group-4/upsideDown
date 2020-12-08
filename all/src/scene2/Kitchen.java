@@ -8,7 +8,7 @@ public class Kitchen extends Place {
 	String[] avaliablePos = { "dining hall"};
 
 	public Kitchen() {
-		super("You have entered the kitchen!", 12, false);
+		super("You have entered the kitchen!", 12, true);
 		characters.add(new HaruSato());
 	}
 

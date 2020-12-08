@@ -79,6 +79,7 @@ public class Player extends Person implements Subject {
 			System.out.println("Your health is now = " + Health + " /100!");
 		} else if (health <= 0) {
 			Health = 0;
+			System.out.println("Your health ");
 			this.setLoss(true);
 		} else if (health <= 15) {
 			Health = health;

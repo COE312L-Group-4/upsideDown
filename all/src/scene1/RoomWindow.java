@@ -1,6 +1,6 @@
 package scene1;
-import scene2.*;
 
+import scene2.*;
 
 public class RoomWindow extends Object {
 	boolean use;
@@ -35,17 +35,30 @@ public class RoomWindow extends Object {
 		use = true;
 	}
 
+	/*
+	 * @Override public void update(double accx, double accy, double accz, double
+	 * gyrx, double gyry, double gyrz) { if (use && gyrx>=2) { System.out.println(
+	 * "Jumping was not a very smart move..\nLuckily you managed to land in the house keeping room room"
+	 * ); p.setPosition(3); p.notifyObservers();
+	 * System.out.println("You hurt your leg.."); p.setHealth(p.getHealth() - 20);
+	 * p.setScore(p.getScore() + 10); use = false; } }
+	 */
+
 	@Override
-	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz) {
-		if (use && gyrx>=2) {
+	public void update(Message m) {
+		if (use) {
+			if (m.condition.toLowerCase().contains("jumped")) {
 				System.out.println(
-						"Jumping was not a very smart move..\nLuckily you managed to land in the house keeping room room");
+						"Jumping was not a very smart move..\nLuckily you managed to land in the house keeping room");
 				p.setPosition(3);
 				p.notifyObservers();
 				System.out.println("You hurt your leg..");
 				p.setHealth(p.getHealth() - 20);
 				p.setScore(p.getScore() + 10);
 				use = false;
+			}else {
+				System.out.println("You need to balance yourself!");
+			}
 		}
 	}
 

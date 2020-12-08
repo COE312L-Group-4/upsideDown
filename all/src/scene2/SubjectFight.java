@@ -5,6 +5,6 @@ import scene1.*;
 public interface SubjectFight {
 	public void registerObserver(FightStrategy fs);
 	public void removeObsever(FightStrategy fs);
-	public void notifyObservers(double accx, double accy, double accz, double gyrx, double gyry, double gyrz,int orientation);
+	public void publishMessageFight(Message m);
 
 }

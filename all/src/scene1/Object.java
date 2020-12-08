@@ -40,7 +40,7 @@ public abstract class Object implements ObjectBehaviour, ObserverSensor {
 	}
 
 	@Override
-	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz) {
+	public void update(Message m) {
 
 	}
 

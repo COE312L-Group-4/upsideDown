@@ -6,7 +6,7 @@ public class GunFight extends FightStrategy {
 	Player p;
 	boolean gun;
 	boolean fight;
-	//private TCP_Client tcp;
+	// private TCP_Client tcp;
 	int updateCount;
 
 	public GunFight(Player p, TCP_Client subject) {
@@ -14,7 +14,7 @@ public class GunFight extends FightStrategy {
 		this.p = p;
 		this.gun = false;
 		this.fight = false;
-		//this.tcp = subject;
+		// this.tcp = subject;
 		updateCount = 0;
 	}
 
@@ -23,21 +23,31 @@ public class GunFight extends FightStrategy {
 		if (gun) {
 			fight = true;
 			System.out.println(
-					"Place your phone pointing to the moitor with the Phone screen pointing on one of the sides to threaten \nHaro Satos with the Gun");
+					"Place your phone pointing to the moitor with the Phone screen pointing on one of the sides \nto threaten Haro Sato with the Gun");
 
 		}
 	}
 
+	/*
+	 * @Override public void update(double accx, double accy, double accz, double
+	 * gyrx, double gyry, double gyrz, int Orint) { if (gun && fight) { if (Orint ==
+	 * 3 || Orint == 4) { updateCount++; if (updateCount <= 2) {
+	 * System.out.println("I am hurt by gun"); } else { fight = false;
+	 * p.setHealth(p.getHealth()-20); Confess(p); } } }
+	 * 
+	 * }
+	 */
+
 	@Override
-	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz, int Orint) {
+	public void update(Message m) {
 		if (gun && fight) {
-			if (Orint == 3 || Orint == 4) {
+			if (m.condition.toLowerCase().contains("gunwon")) {
 				updateCount++;
 				if (updateCount <= 2) {
-					System.out.println("I am hurt by gun");
+					System.out.println("You are pointing your gun at Haru Sato, he seems to be close to confess!");
 				} else {
 					fight = false;
-					p.setHealth(p.getHealth()-20);
+					p.setHealth(p.getHealth() - 20);
 					Confess(p);
 				}
 			}

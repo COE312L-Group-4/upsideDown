@@ -3,5 +3,6 @@ import scene2.*;
 
 
 public interface ObserverSensor {
-	void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz);
+	public void update(Message m);
+	//void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz);
 }

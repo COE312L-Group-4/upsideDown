@@ -82,7 +82,8 @@ public abstract class FightStrategy implements ÒbserverStrategy {
 		//cin.close();
 	}
 
-	public abstract void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz,
-			int Orint);
-
+	/*public abstract void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz,
+			int Orint);*/
+	
+	public abstract void update(Message m);
 }

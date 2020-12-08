@@ -1,23 +1,33 @@
 package scene1;
 
 import scene2.*;
+import java.util.*;
 
 public class MovingSecurity extends Security {
 
 	int c;
+	int sct;
 	int[] Securitypath = { 1, 7, 1, 5, 1, 8, 1, 9, 1, 4, 1, 6, 1, 10, 1, 3, 1 };
 	String[] locationName = { "Hallway", " ", "House Keeping Room", "Laundry Room", "your room", "Security Room",
 			"Victim's Room", "Room 315", "Room 316", "Room 387" };
+	String[] securitytalk = { "I wil find you my friend", "You can't run away from me",
+			"You think you can escape easily... you are wrong!", "police is gonna here in any second now" };
 	Place place;
+	Random r;
 
 	public MovingSecurity(Player p, Time t, Place laundry) {
 		super(p, t);
 		place = laundry;
 		c = 0;
+		sct = 0;
+		r = new Random();
+
 	}
 
 	public MovingSecurity(String name, int age, int position, String job, Player p, Time t) {
 		super(name, age, position, job, p, t);
+		sct = 0;
+		r = new Random();
 	}
 
 	@Override
@@ -31,6 +41,8 @@ public class MovingSecurity extends Security {
 		this.setPosition(Securitypath[c]);
 		System.out.println("A security guard is moving around and is currently trying to find you in "
 				+ locationName[Securitypath[c] - 1]);
+		sct = r.nextInt(4);
+		System.out.print("Security: " + securitytalk[sct]);
 		c++;
 		c = c % 16;
 

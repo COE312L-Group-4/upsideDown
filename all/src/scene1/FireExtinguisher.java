@@ -38,10 +38,23 @@ public class FireExtinguisher extends Object {
 		}
 	}
 
-	@Override
+	/*@Override
 	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz) {
 		if (use && !sr.isOpen()) {
 			if ((accy >= 0.2 || accy <= -0.2) && (accz <= -0.6 || accz >= 0.2)) {
+				System.out.println("You broke the door of the security room you can now access it!");
+				sr.setOpen(true);
+				use = false;
+			} else {
+				System.out.println("You need to try harder");
+			}
+		}
+	}*/
+
+	@Override
+	public void update(Message m) {
+		if (use && !sr.isOpen()) {
+			if ((m.condition.toLowerCase().contains("broke"))) {
 				System.out.println("You broke the door of the security room you can now access it!");
 				sr.setOpen(true);
 				use = false;

@@ -24,13 +24,22 @@ public class PanFight extends FightStrategy {
 
 	}
 
+	/*
+	 * @Override public void update(double accx, double accy, double accz, double
+	 * gyrx, double gyry, double gyrz, int OrintF) { if (pan) { if ((accy >= 0.4 ||
+	 * accy <= -0.1) && (accz <= -0.5) && (gyrx >= 1 || gyrx <= -1)) {
+	 * updateCount++; if (updateCount <= 2) {
+	 * System.out.println("I am hurt by Pan"); } else { pan = false;
+	 * p.setHealth(p.getHealth() - 30); Confess(p); } } } }
+	 */
+
 	@Override
-	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz, int OrintF) {
+	public void update(Message m) {
 		if (pan) {
-			if ((accy >= 0.4 || accy <= -0.1) && (accz <= -0.5) && (gyrx >= 1 || gyrx <= -1)) {
+			if ((m.condition.toLowerCase().contains("panwon"))) {
 				updateCount++;
 				if (updateCount <= 2) {
-					System.out.println("I am hurt by Pan");
+					System.out.println("You are hitting Haru Sato's head with the pan. He is about to confess!");
 				} else {
 					pan = false;
 					p.setHealth(p.getHealth() - 30);

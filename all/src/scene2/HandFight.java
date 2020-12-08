@@ -6,11 +6,12 @@ public class HandFight extends FightStrategy {
 	boolean hand;
 	int updateCount;
 	Player p;
+
 	public HandFight(TCP_Client tcp, Player p) {
 		super(tcp);
 		this.hand = false;
 		this.updateCount = 0;
-		this.p=p;
+		this.p = p;
 	}
 
 	@Override
@@ -21,16 +22,26 @@ public class HandFight extends FightStrategy {
 
 	}
 
+	/*
+	 * @Override public void update(double accx, double accy, double accz, double
+	 * gyrx, double gyry, double gyrz, int Orint) { if (hand) { if ((accy >= 0.2)) {
+	 * updateCount++; if (updateCount <= 2) {
+	 * System.out.println("I am hurt by hand"); } else { hand = false;
+	 * p.setHealth(p.getHealth()-30); Confess(p);
+	 * 
+	 * } } } }
+	 */
+
 	@Override
-	public void update(double accx, double accy, double accz, double gyrx, double gyry, double gyrz, int Orint) {
+	public void update(Message m) {
 		if (hand) {
-			if ((accy >= 0.2)) {
+			if ((m.condition.toLowerCase().contains("handwon"))) {
 				updateCount++;
 				if (updateCount <= 2) {
-					System.out.println("I am hurt by hand");
+					System.out.println("You are punching Haru Sato. He will confess soon!");
 				} else {
 					hand = false;
-					p.setHealth(p.getHealth()-30);
+					p.setHealth(p.getHealth() - 30);
 					Confess(p);
 
 				}

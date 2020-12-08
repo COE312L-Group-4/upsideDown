@@ -33,8 +33,8 @@ public class Time implements Runnable, SubjectTime {
 			while (!enteredVicRoom) {
 				if (p.getPosition() == 7) {
 					enteredVicRoom = true;
+					Thread.sleep(30000);
 				}
-				Thread.sleep(30000);
 			}
 			if (enteredVicRoom) {
 
@@ -68,7 +68,7 @@ public class Time implements Runnable, SubjectTime {
 					}
 
 				}
-				System.out.println("time finished");
+				//System.out.println("time finished");
 
 			}
 

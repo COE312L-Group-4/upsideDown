@@ -60,7 +60,7 @@ public class UpsideDown implements Runnable {
 			System.out.println("Type your name to start..");
 			String name = cin.nextLine();
 
-			Player p = Player.getInstance(name, 40, 5, notebook, phonenotebook);
+			Player p = Player.getInstance(name, 40, 5, notebook, phonenotebook); //change back
 			TCP_Client tcp = new TCP_Client("192.168.0.163", 58194, p);
 
 			// Intailize extra room
@@ -115,8 +115,6 @@ public class UpsideDown implements Runnable {
 					+ "\nThe sound of your alarm wakes you up from your deep sleep..You are feeling energized and ready to leave the room and start exploring Tokyo, Japan's busiest capital\n");
 			alarm.playSound();
 			String MP;
-
-			// p.setPosition(12);
 
 			while (!p.isLoss() && !p.isFinish()) {
 
