@@ -71,8 +71,8 @@ public class UpsideDown implements Runnable {
 			// Places Initialization
 			Place[] places = new Place[15];
 			// -------Scene1----------
-			places[0] = new car();
-			places[1] = new Hallway(tcp, security);
+			places[0] = new car(p);
+			places[1] = new Hallway(tcp, security,p);
 			places[2] = new Elevator();
 			places[3] = new HouseKeepingRoom(powerUp);
 			places[4] = new LaundryRoom();
@@ -115,7 +115,8 @@ public class UpsideDown implements Runnable {
 					+ "\nThe sound of your alarm wakes you up from your deep sleep..You are feeling energized and ready to leave the room and start exploring Tokyo, Japan's busiest capital\n");
 			alarm.playSound();
 			String MP;
-
+			//p.setEvidence(4);
+			
 			while (!p.isLoss() && !p.isFinish()) {
 
 				MP = cin.nextLine();

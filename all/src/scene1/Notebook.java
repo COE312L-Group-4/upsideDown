@@ -21,16 +21,20 @@ public class Notebook{
 		out.write(s);
 		out.flush();
 	}
-	public void read() throws IOException
+	public void read()
 	{
-		int i;
-		br.mark(25);
-		while((i=br.read())!=-1)
-		{
-			System.out.print((char)i);
+		try {
+			int i;
+			br.mark(25);
+			while((i=br.read())!=-1)
+			{
+				System.out.print((char)i);
+			}
+			System.out.println("\n");
+			br.reset();
+		}catch(Exception e) {
+			System.out.println(e);
 		}
-		System.out.println("\n");
-		br.reset();
 	}
 	
 

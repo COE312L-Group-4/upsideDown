@@ -1,4 +1,5 @@
 package scene1;
+
 import scene2.*;
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -6,10 +7,10 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Observer;
 
-
-
 // Use the Singleton pattern 
 public class Player extends Person implements Subject {
+	// --------------context-------------
+	private State state = new HealthyState();
 
 	private ArrayList<Person> observers;
 	private static Player instance;
@@ -25,16 +26,16 @@ public class Player extends Person implements Subject {
 		return finish;
 	}
 
-	public synchronized void setFinish(boolean finish){
+	public synchronized void setFinish(boolean finish) {
 		this.finish = finish;
 		if (finish) {
 			System.out.println("Congratulations, You Won");
-			try { 
+			try {
 				Robot robot = new Robot();
-		         robot.keyPress(KeyEvent.VK_ENTER);
-		         robot.keyRelease(KeyEvent.VK_ENTER);
-				}catch(Exception e) {
-					System.out.println(e);
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER);
+			} catch (Exception e) {
+				System.out.println(e);
 			}
 		}
 
@@ -47,11 +48,11 @@ public class Player extends Person implements Subject {
 	public synchronized void setLoss(boolean loss) {
 		this.loss = loss;
 		System.out.println("You have lost.. you can try again!");
-		try { 
-		Robot robot = new Robot();
-         robot.keyPress(KeyEvent.VK_ENTER);
-         robot.keyRelease(KeyEvent.VK_ENTER);
-		}catch(Exception e) {
+		try {
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
@@ -76,18 +77,16 @@ public class Player extends Person implements Subject {
 	public synchronized void setHealth(int health) {
 		if (health >= 100) {
 			Health = 100;
-			System.out.println("Your health is now = " + Health + " /100!");
 		} else if (health <= 0) {
 			Health = 0;
-			System.out.println("Your health ");
-			this.setLoss(true);
-		} else if (health <= 15) {
+		} else if (health <= 50) {
 			Health = health;
-			System.out.println("Your health is dropping low, Health = " + Health + "/100");
 		} else {
 			Health = health;
-			System.out.println("Your health is now = " + Health + " /100!");
 		}
+		this.state.next(this);
+		this.state.prev(this);
+		System.out.println(this.state.printStatus(this));
 
 	}
 
@@ -167,6 +166,23 @@ public class Player extends Person implements Subject {
 	public void talk(Player p) {
 		System.out.println("I'm a player");
 
+	}
+
+	// context function
+	public void previousState() {
+		state.prev(this);
+	}
+
+	public void nextState() {
+		state.next(this);
+	}
+
+	public String printStatus() {
+		return state.printStatus(this);
+	}
+
+	public void setState(State state) {
+		this.state = state;
 	}
 
 }

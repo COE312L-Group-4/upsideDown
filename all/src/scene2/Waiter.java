@@ -46,7 +46,7 @@ public class Waiter extends Person {
 		player.setEvidence(player.getEvidence() + 1);
 		player.setScore(player.getScore() + 10);
 		try {
-			player.nbook.write("Haru Sato is in the kitchen!");
+			player.nbook.write("waiter said Haru Sato is in the kitchen!");
 		} catch (Exception e) {
 			System.out.println(e);
 		}

@@ -9,6 +9,8 @@ public abstract class Place {
 	public String description;
 	protected ArrayList<Object> items;
 	protected ArrayList<Person> characters;
+	
+	//ControlPanel cp;
 
 	protected int pos;
 	private boolean open;
@@ -27,6 +29,7 @@ public abstract class Place {
 		this.items = new ArrayList<Object>();
 		characters = new ArrayList<Person>();
 		this.open = open;
+		//this.cp = new ControlPanel(com);
 	}
 
 	public abstract void look();

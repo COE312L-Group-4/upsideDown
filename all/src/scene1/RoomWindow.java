@@ -30,19 +30,14 @@ public class RoomWindow extends Object {
 
 	@Override
 	public void use(Player p) {
-		System.out.println(
-				"To be able to safely jump, point your phone screen up and tilt it to be able to balance yourself on the edge of the window");
-		use = true;
+		if (p.printStatus().toLowerCase().contains("healthy")) {
+			System.out.println(
+					"To be able to safely jump, point your phone screen up and tilt it to be able to balance yourself on the edge of the window");
+			use = true;
+		} else {
+			System.out.println("I do not have enough power to do this.. I need to increase my health");
+		}
 	}
-
-	/*
-	 * @Override public void update(double accx, double accy, double accz, double
-	 * gyrx, double gyry, double gyrz) { if (use && gyrx>=2) { System.out.println(
-	 * "Jumping was not a very smart move..\nLuckily you managed to land in the house keeping room room"
-	 * ); p.setPosition(3); p.notifyObservers();
-	 * System.out.println("You hurt your leg.."); p.setHealth(p.getHealth() - 20);
-	 * p.setScore(p.getScore() + 10); use = false; } }
-	 */
 
 	@Override
 	public void update(Message m) {
@@ -56,10 +51,13 @@ public class RoomWindow extends Object {
 				p.setHealth(p.getHealth() - 20);
 				p.setScore(p.getScore() + 10);
 				use = false;
-			}else {
+			} else {
 				System.out.println("You need to balance yourself!");
+
 			}
+
 		}
+
 	}
 
 }

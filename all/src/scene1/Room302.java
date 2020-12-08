@@ -17,6 +17,7 @@ public class Room302 extends Place {
 
 	public Room302(String description, int pos, boolean state) {
 		super(description, 9, false);
+
 	}
 
 	@Override

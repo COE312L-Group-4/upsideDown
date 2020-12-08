@@ -59,7 +59,7 @@ public class Time implements Runnable, SubjectTime {
 									+ " minutes remaining for the police arrival ");
 						}
 						if (count % 7 == 0) {
-							p.setHealth((p.getHealth()) - 1);
+							p.setHealth((p.getHealth()) - 5);
 						}
 
 					} else if (count >= 900) { // 15 mins for the police men

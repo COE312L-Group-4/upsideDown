@@ -16,21 +16,14 @@ public class HandFight extends FightStrategy {
 
 	@Override
 	public void fight() {
-		hand = true;
-		System.out.println(
-				"Move your phone forward and backward with the screen facing up to punch haru sato repeatedly");
-
+		if (p.printStatus().toLowerCase().contains("healthy")) {
+			hand = true;
+			System.out.println(
+					"Move your phone forward and backward with the screen facing up to punch haru sato repeatedly");
+		} else {
+			System.out.println("I do not have enough power to do this.. I need to increase my health");
+		}
 	}
-
-	/*
-	 * @Override public void update(double accx, double accy, double accz, double
-	 * gyrx, double gyry, double gyrz, int Orint) { if (hand) { if ((accy >= 0.2)) {
-	 * updateCount++; if (updateCount <= 2) {
-	 * System.out.println("I am hurt by hand"); } else { hand = false;
-	 * p.setHealth(p.getHealth()-30); Confess(p);
-	 * 
-	 * } } } }
-	 */
 
 	@Override
 	public void update(Message m) {
@@ -45,6 +38,7 @@ public class HandFight extends FightStrategy {
 					Confess(p);
 
 				}
+
 			}
 		}
 	}

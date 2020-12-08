@@ -6,6 +6,7 @@ public class Room301 extends Place{
 
 	public Room301() {
 		super("You entered room 301!.\n",8,false);
+
 	}
 
 	@Override

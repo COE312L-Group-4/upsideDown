@@ -11,7 +11,7 @@ public class MovingSecurity extends Security {
 	String[] locationName = { "Hallway", " ", "House Keeping Room", "Laundry Room", "your room", "Security Room",
 			"Victim's Room", "Room 315", "Room 316", "Room 387" };
 	String[] securitytalk = { "I wil find you my friend", "You can't run away from me",
-			"You think you can escape easily... you are wrong!", "police is gonna here in any second now" };
+			"You think you can escape easily... you are wrong!", "police is gonna be here in any second now" };
 	Place place;
 	Random r;
 
@@ -42,7 +42,7 @@ public class MovingSecurity extends Security {
 		System.out.println("A security guard is moving around and is currently trying to find you in "
 				+ locationName[Securitypath[c] - 1]);
 		sct = r.nextInt(4);
-		System.out.print("Security: " + securitytalk[sct]);
+		System.out.println("Security: " + securitytalk[sct]);
 		c++;
 		c = c % 16;
 

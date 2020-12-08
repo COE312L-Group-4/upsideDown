@@ -21,22 +21,16 @@ public class GunFight extends FightStrategy {
 	@Override
 	public void fight() {
 		if (gun) {
-			fight = true;
-			System.out.println(
-					"Place your phone pointing to the moitor with the Phone screen pointing on one of the sides \nto threaten Haro Sato with the Gun");
+			if (p.printStatus().toLowerCase().contains("healthy")) {
 
+				fight = true;
+				System.out.println(
+						"Place your phone pointing to the moitor with the Phone screen pointing on one of the sides \nto threaten Haro Sato with the Gun");
+			} else {
+				System.out.println("I do not have enough power to do this.. I need to increase my health");
+			}
 		}
 	}
-
-	/*
-	 * @Override public void update(double accx, double accy, double accz, double
-	 * gyrx, double gyry, double gyrz, int Orint) { if (gun && fight) { if (Orint ==
-	 * 3 || Orint == 4) { updateCount++; if (updateCount <= 2) {
-	 * System.out.println("I am hurt by gun"); } else { fight = false;
-	 * p.setHealth(p.getHealth()-20); Confess(p); } } }
-	 * 
-	 * }
-	 */
 
 	@Override
 	public void update(Message m) {
