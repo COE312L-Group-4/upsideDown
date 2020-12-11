@@ -41,6 +41,7 @@ public class MovingSecurity extends Security {
 		this.setPosition(Securitypath[c]);
 		System.out.println("A security guard is moving around and is currently trying to find you in "
 				+ locationName[Securitypath[c] - 1]);
+		System.out.println();
 		sct = r.nextInt(4);
 		System.out.println("Security: " + securitytalk[sct]);
 		c++;
@@ -48,6 +49,7 @@ public class MovingSecurity extends Security {
 
 		if (player.getPosition() == this.getPosition()) {
 			System.out.println("You have been caught by the security!\nGame over.");
+			System.out.println();
 			player.removeObsever(this);
 			t.setTimeup(true);
 		}
@@ -58,6 +60,7 @@ public class MovingSecurity extends Security {
 	public void update(int p) {
 		if (this.getPosition() == p) {
 			System.out.println("You have been caught by the security!\nGame over!.");
+			System.out.println();
 			player.removeObsever(this);
 			t.setTimeup(true);
 		}
@@ -71,9 +74,9 @@ public class MovingSecurity extends Security {
 
 	@Override
 	public void updateTime(int count) {
-		if (count == 180) {
+		if (count == 60) {
 			this.posChange();
-		} else if (count >= 180 && count % 30 == 0) {
+		} else if (count >= 60 && count % 15 == 0) {
 			this.posChange();
 		}
 	}

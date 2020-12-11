@@ -12,7 +12,8 @@ public class Microwave extends Object {
 	}
 
 	@Override
-	public void use(Player p) {
+	public void use(Player p,String input) {
+		if(input.contains("use") || input.contains("open") || input.contains("press")) {
 		if (count < 4) {
 			System.out.println("Hmmm... my favorite pizza!");
 			s.playSound();
@@ -21,13 +22,12 @@ public class Microwave extends Object {
 		} else {
 			System.out.println("I have got more than enough pizza in my system");
 		}
+		
+		}else {
+			System.out.println("You can't use this object with that command");
+		}
 
 	}
 
-	@Override
-	public void errorMessage() {
-		// TODO Auto-generated method stub
-
-	}
 
 }

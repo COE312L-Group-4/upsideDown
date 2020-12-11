@@ -23,20 +23,19 @@ public class RoomWindow extends Object {
 	}
 
 	@Override
-	public void errorMessage() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void use(Player p) {
-		if (p.printStatus().toLowerCase().contains("healthy")) {
-			System.out.println(
-					"To be able to safely jump, point your phone screen up and tilt it to be able to balance yourself on the edge of the window");
-			use = true;
-		} else {
-			System.out.println("I do not have enough power to do this.. I need to increase my health");
+	public void use(Player p,String s) {
+		if(s.toLowerCase().contains("jump")) {
+			if (p.printStatus().toLowerCase().contains("healthy")) {
+				System.out.println(
+						"To be able to safely jump, point your phone screen up and tilt it to be able to balance yourself on the edge of the window");
+				use = true;
+			} else {
+				System.out.println("I do not have enough power to do this.. I need to increase my health");
+			}
+		}else {
+			System.out.println("You can't use this object with that command");
 		}
+
 	}
 
 	@Override

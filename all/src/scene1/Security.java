@@ -10,7 +10,7 @@ public abstract class Security extends Person implements ObserverTime, Observer 
 		super();
 		this.t = t;
 		this.player = p;
-		player.registerObserver(this);
+		this.player.registerObserver(this);
 		this.t.registerObserver(this);
 	}
 
@@ -18,7 +18,7 @@ public abstract class Security extends Person implements ObserverTime, Observer 
 		super(name, age, position, job);
 		this.player = p;
 		this.t = t;
-		player.registerObserver(this);
+		this.player.registerObserver(this);
 		this.t.registerObserver(this);
 	}
 

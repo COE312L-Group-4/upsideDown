@@ -14,14 +14,10 @@ public class Safe extends Object{
 
 
 	@Override
-	public void errorMessage() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void use(Player p) {
+	public void use(Player p,String s) {
+		if(s.contains("use") || s.contains("open")) {
 		System.out.println("There are a pile of papers with some cases folders that has different names:\nKyoko, Tamashini, Haru Sato, Yiugang ma");
+		}
 	}
 
 }

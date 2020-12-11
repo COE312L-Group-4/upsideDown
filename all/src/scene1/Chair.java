@@ -13,13 +13,7 @@ public class Chair extends Object {
 	}
 
 	@Override
-	public void errorMessage() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void use(Player p) {
+	public void use(Player p,String s) {
 	}
 
 	public void use(Player p, Place place) {

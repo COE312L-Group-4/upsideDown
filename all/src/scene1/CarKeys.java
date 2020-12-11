@@ -12,14 +12,9 @@ public class CarKeys extends Object{
 		super("car keys", color,"These are car keys",true);
 	}
 
-
 	@Override
-	public void errorMessage() {
-		
-	}
-
-	@Override
-	public void use(Player p) {
+	public void use(Player p,String s) {
+		System.out.println("You have the car keys in your bag");
 		
 	}
 

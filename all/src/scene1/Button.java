@@ -9,13 +9,8 @@ public class Button extends Object {
 	}
 
 	@Override
-	public void errorMessage() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void use(Player p) {
+	public void use(Player p,String s) {
+		if(s.contains("use") || s.contains("press")) {
 		for (int i = 0; i < p.bag.size(); i++) {
 			if (p.bag.get(i).name.contains("car keys")) {
 				p.setPosition(0);
@@ -26,6 +21,9 @@ public class Button extends Object {
 		}
 
 		System.out.println("You cannot exit the hotel before collecting enough evidence!");
+		System.out.println("-------------------------------------------------------");
+
+		}
 	}
 
 }

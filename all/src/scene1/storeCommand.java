@@ -1,19 +1,17 @@
 package scene1;
+
 import scene2.*;
 
-
 public class storeCommand implements Command {
-	Place[] places;
-	Player p;
+	Place pla;
 
-	public storeCommand(Place[] places, Player p) {
-		this.places = places;
-		this.p = p;
+	public storeCommand(Place pla) {
+		this.pla = pla;
 	}
 
 	@Override
 	public void execute(String s) {
-		places[p.getPosition()].store(s, p);
+		pla.store(s);
 	}
 
 }

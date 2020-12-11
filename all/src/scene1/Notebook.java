@@ -9,14 +9,15 @@ public class Notebook{
 	
     PrintWriter out ;
     BufferedReader br;
-
+    int x;
 	public Notebook(BufferedWriter bw,FileReader fr) {
 		super();
 		out= new PrintWriter(bw);
 		br=new BufferedReader(fr);
+		x = 0;
 	}
 
-	public void write(String s) throws IOException
+	public void write(String s)
 	{
 		out.write(s);
 		out.flush();
@@ -25,10 +26,11 @@ public class Notebook{
 	{
 		try {
 			int i;
-			br.mark(25);
+			br.mark(1000);
 			while((i=br.read())!=-1)
 			{
 				System.out.print((char)i);
+				//x++;
 			}
 			System.out.println("\n");
 			br.reset();

@@ -12,18 +12,22 @@ public class ITFriend extends Person implements Observer {
 	private static ITFriend instance;
 	Player player;
 	Scanner cin;
+	Sound s;
+	boolean firstTime;
 
-	private ITFriend(Player player) {
+	private ITFriend(Player player,Sound s) {
 		super("Oda", 30, 0, "IT Consultant");
-		this.player = player;	
+		this.player = player;
+		this.s = s;
+		firstTime = true;
 		player.registerObserver(this);
 		cin = new Scanner(System.in);
 
 	}
 
-	public static synchronized ITFriend getInstance(Player p) {
+	public static synchronized ITFriend getInstance(Player p, Sound s) {
 		if (instance == null) {
-			instance = new ITFriend(p);
+			instance = new ITFriend(p,s);
 		}
 		return instance;
 	}
@@ -136,7 +140,10 @@ public class ITFriend extends Person implements Observer {
 		if (p == 0) {
 			System.out.println(
 					"You have a call from your friend who works in the IT department for the police (type 'answer' to recieve the call)");
-			// s.playSound();
+			if(firstTime) {
+				s.playSound();
+				firstTime = false;
+			}
 			String answer = cin.nextLine();
 			while (!answer.toLowerCase().contains("answer")) {
 				System.out.print("Type answer: ");

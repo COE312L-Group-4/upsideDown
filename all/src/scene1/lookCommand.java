@@ -1,20 +1,17 @@
 package scene1;
+
 import scene2.*;
 
-public class lookCommand implements Command{
-	Place [] places;
-	Player p;
-
+public class lookCommand implements Command {
+	Place s;
 	
-	public lookCommand(Place[] places, Player p) {
-		this.places = places;
-		this.p = p;
+	public lookCommand(Place s) {
+		this.s = s;
 	}
 
-
 	@Override
-	public void execute(String s) {
-		places[p.getPosition()].look();
+	public void execute(String str) {
+		this.s.look();
 	}
 
 }

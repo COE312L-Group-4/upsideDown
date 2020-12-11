@@ -25,7 +25,7 @@ public class GunFight extends FightStrategy {
 
 				fight = true;
 				System.out.println(
-						"Place your phone pointing to the moitor with the Phone screen pointing on one of the sides \nto threaten Haro Sato with the Gun");
+						"Place your phone pointing to the moitor with the Phone screen pointing on one of the sides\nto threaten Haro Sato with the Gun");
 			} else {
 				System.out.println("I do not have enough power to do this.. I need to increase my health");
 			}

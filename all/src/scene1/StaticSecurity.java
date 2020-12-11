@@ -18,6 +18,7 @@ public class StaticSecurity extends Security{
 	public void posChange() {
 		System.out.println("A Security guard is waiting in the victim's room monitoring the door");
 		this.setPosition(7);
+		//System.out.println("Security position " + this.getPosition()+ " player position " + player.getPosition());
 		if (player.getPosition() == this.getPosition()) {
 			System.out.println("You have been caught by the security!\nGame over.");
 			t.setTimeup(true);
@@ -42,7 +43,7 @@ public class StaticSecurity extends Security{
 
 	@Override
 	public void updateTime(int count) {
-		if(count == 180) {
+		if(count == 60) {
 			this.posChange();	
 			t.removeObsever(this);
 		}

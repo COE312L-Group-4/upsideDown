@@ -13,17 +13,10 @@ public class Gun extends Object {
 		super("gun", color, "You can find the gun in the car", true);
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	@Override
-	public void errorMessage() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void use(Player p) {
-		// TODO Auto-generated method stub
-		
+	public void use(Player p,String s) {
+		System.out.println("You can only use the Gun to fight using the fight command");
 	}
 
 

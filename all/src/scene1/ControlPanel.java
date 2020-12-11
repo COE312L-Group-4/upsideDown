@@ -10,6 +10,10 @@ public class ControlPanel {
 	
 	public void commandCalled(int index, String s)
 	{
-		slots[index].execute(s);
+		if(index >= slots.length) {
+			System.out.println("This is an invalid Command, you can't do this command here");
+		}else {
+			slots[index].execute(s);
+		}
 	}
 }

@@ -15,20 +15,19 @@ public class Sushi extends Object {
 	}
 
 	@Override
-	public void use(Player p) {
-		if (count < 4) {
-			System.out.println("Hmmm.. never tried sushi before");
-			sound.playSound();
-			p.setHealth(p.getHealth() + 5);
-			count++;
-		} else {
-			System.out.println("enough sushi for now");
+	public void use(Player p, String input) {
+		if (input.toLowerCase().contains("eat"))
+			if (count < 4) {
+				System.out.println("Hmmm.. never tried sushi before");
+				sound.playSound();
+				p.setHealth(p.getHealth() + 5);
+				count++;
+			} else {
+				System.out.println("enough sushi for now");
+			}
+
+		else {
+			System.out.println("You cannot use this object using that command");
 		}
-
 	}
-
-	@Override
-	public void errorMessage() {
-	}
-
 }

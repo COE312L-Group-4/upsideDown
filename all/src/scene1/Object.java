@@ -31,9 +31,7 @@ public abstract class Object implements ObjectBehaviour, ObserverSensor {
 		return "Object [name=" + name + ", color=" + color + "]";
 	}
 
-	public abstract void use(Player p);
-
-	public abstract void errorMessage();
+	public abstract void use(Player p, String s);
 
 	public void use(Player p, Place place) {
 

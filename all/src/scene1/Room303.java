@@ -1,25 +1,28 @@
 package scene1;
-import scene2.*;
 
+import scene2.*;
 
 public class Room303 extends Place {
 
 	@Override
 	public void look() {
-		
+
 	}
 
 	public Room303() {
-		super("You entered Room 3",10,false);
-
+		super();
 	}
 
 	@Override
-	public int walk(String s) {
+	public void walk(String s) {
 		System.out.println("This is Room 3");
-		return 0;
+		p.setPosition(0);
 	}
 
-
+	@Override
+	public void help() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

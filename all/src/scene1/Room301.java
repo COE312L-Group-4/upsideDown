@@ -1,11 +1,11 @@
 package scene1;
+
 import scene2.*;
 
-
-public class Room301 extends Place{
+public class Room301 extends Place {
 
 	public Room301() {
-		super("You entered room 301!.\n",8,false);
+		super();
 
 	}
 
@@ -14,12 +14,15 @@ public class Room301 extends Place{
 	}
 
 	@Override
-	public int walk(String s) {
+	public void walk(String s) {
 		System.out.println("This is Room 1");
-		return 0;
+		p.setPosition(0);
 	}
 
-
-
+	@Override
+	public void help() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

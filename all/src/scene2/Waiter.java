@@ -18,6 +18,7 @@ public class Waiter extends Person {
 		System.out.println(name + ": Welcome to our resturant, how can I help you?");
 		System.out.println("Choose your reply:\n1-How long have you been here\n2-I am looking for Haro Satu");
 		String reply = cin.nextLine();
+		System.out.println();
 		boolean fofo = true;
 		while (fofo) {
 			switch (reply) {
@@ -34,6 +35,7 @@ public class Waiter extends Person {
 			default:
 				System.out.print("Please choose one of the options: ");
 				reply = cin.nextLine();
+				System.out.println();
 			}
 		}
 		if (reply.contains("1")) {

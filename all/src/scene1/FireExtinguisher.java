@@ -8,12 +8,13 @@ public class FireExtinguisher extends Object {
 	private TCP_Client subject;
 	Place sr;
 	Player p;
+
 	public FireExtinguisher() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public FireExtinguisher(String color, TCP_Client subject, Place sr,Player p) {
+	public FireExtinguisher(String color, TCP_Client subject, Place sr, Player p) {
 		super("fire extinguisher", color, "A fire extinguisher at the end of the hallway", false);
 		this.subject = subject;
 		subject.registerObserver(this);
@@ -23,24 +24,25 @@ public class FireExtinguisher extends Object {
 	}
 
 	@Override
-	public void errorMessage() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void use(Player p) {
-		if (!sr.isOpen()) {
-			if (p.printStatus().toLowerCase().contains("healthy")) {
-				System.out.println("You can use the fire extinguisher to break the lock on the security room door!");
-				System.out.println("Make your phone face the wall then move your phone up and down as fast as you can");
-				use = true;
+	public void use(Player p, String s) {
+		if (s.contains("use") || s.contains("open")) {
+			if (!sr.isOpen()) {
+				if (p.printStatus().toLowerCase().contains("healthy")) {
+					System.out
+							.println("You can use the fire extinguisher to break the lock on the security room door!");
+					System.out.println(
+							"Make your phone face the wall then move your phone up and down as fast as you can");
+					use = true;
+				} else {
+					System.out.println("I do not have enough power to do this.. I need to increase my health");
+				}
 			} else {
-				System.out.println("I do not have enough power to do this.. I need to increase my health");
+				System.out.println("The door is already open!");
 			}
 		} else {
-			System.out.println("The door is already open!");
+			System.out.println("You can't use this object with that command");
 		}
+
 	}
 
 	@Override

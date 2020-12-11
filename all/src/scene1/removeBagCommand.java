@@ -1,20 +1,18 @@
 package scene1;
+
 import scene2.*;
 
-
 public class removeBagCommand implements Command {
-	Place[] places;
-	Player p;
+	Place pla;
 
-	public removeBagCommand(Place[] places, Player p) {
+	public removeBagCommand(Place pla) {
 		super();
-		this.places = places;
-		this.p = p;
+		this.pla = pla;
 	}
 
 	@Override
 	public void execute(String s) {
-		places[p.getPosition()].remove(s, p);
+		pla.remove(s);
 	}
 
 }

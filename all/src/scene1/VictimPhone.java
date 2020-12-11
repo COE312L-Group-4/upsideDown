@@ -1,4 +1,5 @@
 package scene1;
+
 import scene2.*;
 
 import java.util.Scanner;
@@ -19,12 +20,6 @@ public class VictimPhone extends Object {
 		s = new Scanner(System.in);
 	}
 
-	@Override
-	public void errorMessage() {
-		// TODO Auto-generated method stub
-
-	}
-
 	public void callHistory() {
 		now = Calendar.getInstance();
 		now.add(Calendar.MINUTE, -20);
@@ -40,6 +35,7 @@ public class VictimPhone extends Object {
 		now.add(Calendar.MINUTE, -55);
 		System.out.println("Outgoing Call " + now.get(Calendar.HOUR_OF_DAY) + ":" + now.get(Calendar.MINUTE)
 				+ " 息子 Son --- Yesterday\n");
+		System.out.println();
 
 	}
 
@@ -66,66 +62,77 @@ public class VictimPhone extends Object {
 			System.out.println("---Unread Messages---");
 			System.out.println("From: Unknown\nThis was ur biggest yet final mistake, Salute");
 			System.out.println("----------------------");
+			System.out.println();
 		}
 	}
 
 	@Override
-	public void use(Player p) {
-		System.out.println(
-				"The phone is locked with a 3 digit password\nFortunately there is a hint:\nWhat 3 positive numbers give the same result when multiplied and added together? (in ascending order)");
-		System.out.println("Enter the Passowrd to access the phone:");
-		String pass = s.nextLine();
-		int option = -1;
-		boolean pafirst = true;
-		boolean callfirst = true;
-		boolean messagefirst = true;
-		while (true) {
-			if (pass.equals("123")) {
-				if (pafirst) {
-					p.setScore(p.getScore() + 10);
-					pafirst = false;
-				}
-				break;
-			} else {
-				System.out.println("Password is wrong! Please try again or exit");
-				p.setScore(p.getScore() - 10);
-			}
-			pass = s.nextLine();
-		}
-		while (option != 3) {
-			System.out.println("Pick one of the follwoing options:\n1-View call history\n2-View messages\n3-exit");
-			System.out.print("Your choice is:");
-			option = s.nextInt();
-			try {
-				if (option == 1) {
-					callHistory();
-					if (callfirst) {
-						p.setScore(p.getScore() + 5);
-						p.setEvidence(p.getEvidence()+1);
-						callfirst = false;
-						p.nbook.write(
-								"You found on the victim's phone call history with 3 people: Haru Sato, Wife, Son.\n");
+	public void use(Player p, String input) {
+		if (input.toLowerCase().contains("use")) {
+			System.out.println(
+					"The phone is locked with a 3 digit password\nFortunately there is a hint:\nWhat 3 positive numbers give the same result when multiplied and added together? (in ascending order)");
+			System.out.println("Enter the Passowrd to access the phone:");
+			String pass = s.nextLine();
+			System.out.println();
+			int option = -1;
+			boolean pafirst = true;
+			boolean callfirst = true;
+			boolean messagefirst = true;
+			while (true) {
+				if (pass.equals("123")) {
+					if (pafirst) {
+						p.setScore(p.getScore() + 10);
+						pafirst = false;
 					}
-				} else if (option == 2) {
-					if (messagefirst) {
-						p.setScore(p.getScore() + 5);
-						p.setEvidence(p.getEvidence()+1);
-						messagefirst = false;
-						p.nbook.write(
-								"You found on the victim's phone a converstation with an unknown number that is threatining him.\n");
-					}
-					viewMessage();
-
-				} else if (option == 3) {
-					System.out.println("Phone closed!");
 					break;
 				} else {
-					System.out.println("Invalid option please try again!");
+					System.out.println("Password is wrong! Please try again or exit");
+					p.setScore(p.getScore() - 10);
 				}
-			} catch (Exception e) {
-				System.out.println(e);
+				pass = s.nextLine();
 			}
+			while (option != 3) {
+				System.out.println("Pick one of the follwoing options:\n1-View call history\n2-View messages\n3-exit");
+				System.out.print("Your choice is:");
+				option = s.nextInt();
+				try {
+					if (option == 1) {
+						callHistory();
+						if (callfirst) {
+							p.setScore(p.getScore() + 5);
+							p.setEvidence(p.getEvidence() + 1);
+							callfirst = false;
+							p.nbook.write(
+									"You found on the victim's phone call history with 3 people: Haru Sato, Wife, Son.\n");
+							System.out.println();
+						}
+					} else if (option == 2) {
+						if (messagefirst) {
+							p.setScore(p.getScore() + 5);
+							p.setEvidence(p.getEvidence() + 1);
+							messagefirst = false;
+							p.nbook.write(
+									"You found on the victim's phone a converstation with an unknown number that is threatining him.\n");
+							System.out.println();
+						}
+						viewMessage();
 
+					} else if (option == 3) {
+						System.out.println("Phone closed!");
+						System.out.println();
+						break;
+					} else {
+						System.out.println("Invalid option please try again!");
+						System.out.println();
+					}
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+
+			}
+		} else {
+			System.out.println("You cannot use this object with this command");
+			System.out.println();
 		}
 	}
 }

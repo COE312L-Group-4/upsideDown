@@ -1,22 +1,18 @@
 package scene1;
+
 import scene2.*;
 
-
 public class useCommand implements Command {
-	Place [] places;
-	Player p;
-	
-	
-	public useCommand(Place[] places, Player p) {
-		this.places = places;
-		this.p = p;
-	}
+	Place pla;
 
+	public useCommand(Place pla) {
+		this.pla = pla;
+	}
 
 	@Override
 	public void execute(String s) {
-		places[p.getPosition()].useInPlace(s,p);
-		
+		pla.useInPlace(s);
+
 	}
 
 }

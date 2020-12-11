@@ -9,11 +9,10 @@ public abstract class Place {
 	public String description;
 	protected ArrayList<Object> items;
 	protected ArrayList<Person> characters;
-	
-	//ControlPanel cp;
-
+	ControlPanel cp;
 	protected int pos;
 	private boolean open;
+	protected Player p;
 
 	public Place() {
 		description = " ";
@@ -23,30 +22,31 @@ public abstract class Place {
 		open = false;
 	}
 
-	public Place(String description, int pos, boolean open) {
+	public Place(String description, int pos, boolean open,Player p) {
 		this.description = description;
 		this.pos = pos;
 		this.items = new ArrayList<Object>();
 		characters = new ArrayList<Person>();
 		this.open = open;
-		//this.cp = new ControlPanel(com);
+		this.cp = null;
+		this.p = p;
 	}
 
 	public abstract void look();
 
-	public abstract int walk(String s);
+	public abstract void walk(String s);
 
-	public void useInPlace(String s, Player p) {
+	public void useInPlace(String s) {
 		if (!items.isEmpty() || p.bag.size() > 0) {
 			for (int i = 0; i < items.size(); i++) {
 				if (s.contains(items.get(i).name.toLowerCase())) {
-					items.get(i).use(p);
+					items.get(i).use(p,s);
 					return;
 				}
 			}
 			for (int i = 0; i < p.bag.size(); i++) {
 				if (s.contains(p.bag.get(i).name.toLowerCase())) {
-					p.bag.get(i).use(p);
+					p.bag.get(i).use(p,s);
 					return;
 				}
 			}
@@ -64,7 +64,7 @@ public abstract class Place {
 		this.description = description;
 	}
 
-	public void store(String s, Player p) {
+	public void store(String s) {
 		if (!items.isEmpty()) {
 			if (!p.isBagFull()) {
 				for (int i = 0; i < items.size(); i++) {
@@ -93,7 +93,7 @@ public abstract class Place {
 		}
 	}
 
-	public void remove(String s, Player p) {
+	public void remove(String s) {
 		if (!p.bag.isEmpty()) {
 			for (int i = 0; i < p.bag.size(); i++) {
 				if (s.contains(p.bag.get(i).name.toLowerCase())) {
@@ -110,7 +110,7 @@ public abstract class Place {
 		}
 	}
 
-	public void talkInPlace(String s, Player p) {
+	public void talkInPlace(String s) {
 		if (!characters.isEmpty()) {
 			for (int i = 0; i < characters.size(); i++) {
 				if (s.contains(characters.get(i).name.toLowerCase())) {
@@ -123,6 +123,8 @@ public abstract class Place {
 			System.out.println("No character exist in this place");
 		}
 	}
+	
+	 public abstract void help();
 
 	public synchronized boolean isOpen() {
 		return open;
@@ -130,6 +132,14 @@ public abstract class Place {
 
 	public synchronized void setOpen(boolean open) {
 		this.open = open;
+	}
+	
+	public ControlPanel getCp() {
+		return cp;
+	}
+
+	public void setCp(ControlPanel cp) {
+		this.cp = cp;
 	}
 
 }

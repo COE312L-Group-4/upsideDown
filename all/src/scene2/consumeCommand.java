@@ -2,18 +2,16 @@ package scene2;
 
 import scene1.*;
 
-public class talkCommand implements Command {
-
+public class consumeCommand implements Command {
 	Place pla;
 
-	public talkCommand(Place pla) {
+	public consumeCommand(Place pla) {
 		this.pla = pla;
-
 	}
 
 	@Override
 	public void execute(String s) {
-		pla.talkInPlace(s);
+		pla.useInPlace(s);
 	}
 
 }

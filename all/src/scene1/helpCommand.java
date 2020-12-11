@@ -2,13 +2,14 @@ package scene1;
 import scene2.*;
 
 public class helpCommand implements Command {
-
-	public helpCommand() {
-		// TODO Auto-generated constructor stub
+	Place pla;
+	public helpCommand(Place pla) {
+		this.pla = pla;
 	}
 
 	@Override
 	public void execute(String s) {
+		pla.help();
 		System.out.println("---The commands are as the follwoing---");
 		System.out.println("help: to know all the commands available in the game");
 		System.out.println("look around: to see the area you are in");
