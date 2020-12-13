@@ -43,7 +43,7 @@ public class StaticSecurity extends Security{
 
 	@Override
 	public void updateTime(int count) {
-		if(count == 60) {
+		if(count == 90) {
 			this.posChange();	
 			t.removeObsever(this);
 		}

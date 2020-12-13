@@ -74,9 +74,9 @@ public class MovingSecurity extends Security {
 
 	@Override
 	public void updateTime(int count) {
-		if (count == 60) {
+		if (count == 90) {
 			this.posChange();
-		} else if (count >= 60 && count % 15 == 0) {
+		} else if (count >= 90 && count % 15 == 0) {
 			this.posChange();
 		}
 	}

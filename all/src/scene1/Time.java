@@ -52,7 +52,7 @@ public class Time implements Runnable, SubjectTime {
 					Thread.sleep(1000);	
 					notifyObservers(count);
 					count++;
-					if (count % 60 == 0 && count != 0 && count <= 60) { // 3 mins for the security
+					if (count % 60 == 0 && count != 0 && count <= 90) { // 1.5 mins for the security
 						if (count == 60) {
 							System.out.println("The securities have arrived to the victim's room");
 							System.out.println();
@@ -76,7 +76,6 @@ public class Time implements Runnable, SubjectTime {
 					}
 
 				}
-				//System.out.println("time finished");
 
 			}
 

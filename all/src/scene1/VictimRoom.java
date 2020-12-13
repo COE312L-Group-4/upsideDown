@@ -35,7 +35,7 @@ public class VictimRoom extends Place {
 	@Override
 	public void look() {
 		System.out.println(
-				"You are in hotel room 394, There is a dead body, security have seen me entring the room, \nmost probably they will accuse me for murdering him!\nI need to stay low and find who really did it.. \n");
+				"You are in hotel room 394, security have seen me entring the room, \nmost probably they will accuse me for murdering him!\nI need to stay low and find who really did it.. \n");
 		if (!items.isEmpty()) {
 			System.out.println("you can see the follwoing objects:");
 			for (int i = 0; i < items.size(); i++) {
@@ -72,11 +72,9 @@ public class VictimRoom extends Place {
 		System.out.println("help: to know all the commands available in the game");
 		System.out.println("look around: to see the area you are in");
 		System.out.println("walk <place name>: to navigate through the game");
-		System.out.println("use <object name>  or open <object name>: to use or open different objects");
+		System.out.println("Jump from <object name>  or pick up <object name> or use or open: to use or open different objects");
 		System.out.println("read notebook: to open a summary of evidence collected");
-		System.out.println("talk <character name>: to talk to a character");
 		System.out.println("Store <object name>: to store the portable objects in your bag");
-		System.out.println("eat/drink <object name>: to consume food or drink for energy");
 		System.out.println("Statement that contains (look && bag): to view the contents of your bag");
 		System.out.println("Statement that contains (remove <object name> && bag): to remove an object from the bag");
 		System.out.println("I give up: to exit the game");

@@ -71,7 +71,7 @@ public class UpsideDown implements Runnable {
 					"UpsideDown is a thriller and crime game.\nAs a player you will have to go around solving puzzels, and collecting evidence to win the game\nYou have health that you can increase by eating or drinking from the game enviroment\nYou have a bag that you can use to store up to 7 objects\nYou can always access the notebook to read a summary of the evidence collected\nYou can use the notepad feature in your phone that is placed in the bag to write personalized notes\nyou can type *help* to know the commands available at the current position to play the game\n\n----Good Luck trying to fix your life when it turns upside down----\n");
 			System.out.println("Type your name to start..");
 			String name = cin.nextLine();
-			Player p = Player.getInstance(name, 40, 5, notebook, phonenotebook); // change back
+			Player p = Player.getInstance(name, 40, 5, notebook, phonenotebook); 
 			TCP_Client tcp = new TCP_Client("192.168.0.163", 58194, p);
 
 			// Intailize extra room
@@ -114,7 +114,7 @@ public class UpsideDown implements Runnable {
 					+ "\nThe sound of your alarm wakes you up from your deep sleep..\nYou are feeling energized and ready to leave the room and start exploring Tokyo, Japan's busiest capital\n");
 			alarm.playSound();
 			String MP;
-			// p.setEvidence(4);
+			
 			while (!p.isLoss() && !p.isFinish()) {
 
 				MP = cin.nextLine();

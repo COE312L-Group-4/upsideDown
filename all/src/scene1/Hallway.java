@@ -50,12 +50,21 @@ public class Hallway extends Place {
 		if (this.isOpen()) {
 			for (int i = 0; i < avaliablePos.length; i++) {
 				if ((s.contains(avaliablePos[i])) && (s.contains("walk"))) {
-					if(!security.isOpen() && i+2 == 6) {			
+					if(!security.isOpen() && i+2 == 6) {
+						
 						System.out.println("you can't enter the " + avaliablePos[i] + " it is closed !");
+						
 						 p.setPosition(pos);
 						 return;
 					}
+					if(i+2==7)
+					{
+						System.out.println("you are standing in " + avaliablePos[i] + "!\nThere is a dead body on the ground!!");
+
+					}
+					else {
 					System.out.println("you are standing in " + avaliablePos[i] + "!");
+					}
 					p.setPosition(i+2);
 					p.notifyObservers();
 					return;
@@ -81,8 +90,6 @@ public class Hallway extends Place {
 		System.out.println("walk <place name>: to navigate through the game");
 		System.out.println("use <object name>  or open <object name>: to use or open different objects");
 		System.out.println("read notebook: to open a summary of evidence collected");
-		System.out.println("talk <character name>: to talk to a character");
-		System.out.println("eat/drink <object name>: to consume food or drink for energy");
 		System.out.println("Store <object name>: to store the portable objects in your bag");
 		System.out.println("Statement that contains (look && bag): to view the contents of your bag");
 		System.out.println("Statement that contains (remove <object name> && bag): to remove an object from the bag");

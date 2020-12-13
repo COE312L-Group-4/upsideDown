@@ -4,7 +4,7 @@ public class WeakState implements State {
 
 	@Override
 	public void prev(Player context) {
-		if (context.getHealth() > 50) {
+		if (context.getHealth() > 40) {
 			context.setState(new HealthyState());
 		}
 	}
